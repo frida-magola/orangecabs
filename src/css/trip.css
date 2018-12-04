@@ -1,0 +1,507 @@
+html, body{
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+body{
+    height: 100%;
+    position: relative;
+    overflow-x: hidden;
+}
+.sidebar .nav-link.active {
+    color: #fff;
+}
+#map,#map2{height: 60vh; width: 100%; margin-bottom: 2rem;}
+
+
+.bg-dark {
+    background-color:#11A0DC !important;
+        color: #fff;
+}
+.bg-light{
+    background: url(../images/onlinebook.jpg);
+     background-size: cover;
+     color:#fff;
+     position: relative;
+     height: 100%;
+}
+
+.btn-warning {color: #fff;}
+
+.sidebar .nav-link {
+    font-weight: 500;
+    color: #fff;
+}
+.show>.btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #11A0DC;
+    border-color: #11A0DC;
+}
+
+.navbar-brand {
+    background-color: #11A0DC !important;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+}
+
+.shadow {
+    box-shadow: 0 !important;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #11A0DC;
+    border-color: #11A0DC;
+}
+
+.btn:hover {
+    color: #fff;
+    background-color: #11A0DC;
+    border-color: #11A0DC;
+}
+
+.sidebar {
+    position: fixed;
+    bottom: 0;
+}
+
+.footer {
+    bottom: 0;
+    width: 100%;
+    background-color: #FCB134;
+    text-align: center;
+    position: fixed;
+    padding:1rem;
+    z-index: 999;
+}
+.active {
+    background-color: #11A0DC;
+  }
+
+  [type=reset], [type=submit], button, html [type=button] {
+    -webkit-appearance: none;
+}
+.modal {
+    z-index: 20;
+    }
+    .modal-backdrop{
+        z-index: 10;
+    }
+
+    .editTitle {
+        color: #fff;   
+    }
+    
+    .edit-header{background: linear-gradient(to right,#ffb605, #ffb605);}
+    .edittripfooter {
+        margin-bottom: 0rem;
+        background: linear-gradient(to right,#11A0DC, #11A0DC);
+        background: -webkit-linear-gradient(to right,#11A0DC, #11A0DC);
+        background: -o-linear-gradient(to right,#11A0DC, #11A0DC);
+        background: -moz-linear-gradient(to right,#11A0DC, #11A0DC);
+        background: -ms-linear-gradient(to right,#11A0DC, #11A0DC);
+    }
+    /* .edit-body {
+        background: linear-gradient(to right,#ffb605, #11A0DC);
+    } */
+    .profile {
+        width: 100px;height:100px;border-radius:50%;
+    }
+    .profile img {width:100%;}
+
+    .modal-body{
+        background-color: #fff !important;
+    }
+
+    .background img{width:100%;}
+    /* img{width: 100%;} */
+
+    .card-body { 
+        /* text-align: left; */
+        line-height: 3rem;
+    }
+    .text-center{
+        text-align: center !important;
+    }
+    .adminbox {margin-bottom: 2rem;}
+
+    .adminbox > .fa,.far,.fas {
+        font-size: 3rem;
+        cursor: pointer;
+        letter-spacing: .4rem;
+    /* color: #fff; */
+    }
+
+    .profile-icon {
+        font-size: 1rem;
+    }
+.bookmonthly, .users{
+    background-color: #11A0DC !important;
+    color: white;
+}
+.ridersbook, .chat, .bookmonthly, .users{
+    box-shadow: .5rem .2rem .3rem rgba(0, 0, 0, .25);
+}
+
+.bookmonthly .far,
+.chat .far {
+    font-size: 3rem !important;
+}
+.show>.btn-warning.dropdown-toggle {
+    color: #fff;
+}
+
+.sidebar-sticky > .nav .nav-item {
+    padding: 0 0 !important;
+}
+
+.editmode{font-size: 1.5rem;}
+
+.linkdaction{padding: .5rem;}
+
+.btn-outline-danger {
+    color: #dc3545 !important;
+}
+.btn-outline-danger:hover,
+.btn-outline-success:hover,
+.btn-outline-warning:hover{background-color: transparent;}
+
+.btn-outline-success{color: #28a745 !important;}
+
+.btn-outline-warning:hover{
+color:#ffc107 !important;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* tr td {word-break: break-all;} */
+.col-md-4 img{width: 100% !important;}
+.custom-file-label::after {
+    content: "Upload" !important;
+    cursor: pointer !important;
+
+}
+
+.custom-file-input:lang(en)~.custom-file-label::after {
+    content: "Upload" !important;
+    cursor: pointer !important;
+}
+
+.imagePreview img{    
+    border-radius: 50%;
+    width: 6rem !important;
+    /* margin: 0 2rem; */
+    height: 3rem;
+}
+
+.sorting_1 img{
+    border-radius: 50%;
+    width: 4rem !important;
+    /* margin: 0 2rem; */
+    height: 2rem;
+}
+.nav-item .nav-link >.fas,.far {
+    font-size: 1.2rem !important;
+}
+.helpcontent{
+    margin-bottom: 7rem;
+}
+.helpcontent > .help {
+    padding: 0 1.5rem;
+}
+/* #driverinfo > .moreinfouserul .moreinfouserli {
+    padding: 0 !important;
+} */
+.carsavailable {
+    margin-top: 5rem;
+    padding: .9rem 1rem;
+    background-color: #fff !important;
+    box-shadow: .1rem .2rem .5rem .2rem rgba(0, 0, 0, .25) !important;
+}
+#carsavailablecontainer{
+    margin-top: 2rem;
+}
+
+element.style {
+    margin-bottom: 10rem;
+}
+[role="main"] {
+    padding-top: 48px;
+}
+@media (min-width: 576px){
+    /* .ml-sm-auto, .mx-sm-auto {
+        margin-left: 10rem!important;
+    } */
+    .profile img{
+        width: 7rem;
+    }
+}
+
+.datatableContent{
+    background-color: #fff !important;
+}
+#menus-toggle {
+    font-size: 2.5rem;
+    /* margin-left: 17rem; */
+    display: none;
+    cursor: pointer;
+}
+#sidebarmobile{
+    display: none;
+    padding-top: 5.5rem;
+    z-index: 999;
+    position: fixed;
+    width: 100%;
+    background: url(../images/onlinebook.jpg);
+    background-size: cover;
+    height: 100%;
+}
+.nav-link {
+    color: #fff !important;
+}
+
+.notifydesktop{
+    display: block;
+    margin-left: 1rem !important;
+}
+#searchform{
+    margin-left: 0;
+}
+
+
+.buttonOpenChatApp {
+    font-size: 3rem;
+    color: #11A0DC;
+    position: fixed;
+    cursor: pointer;
+    top: 35rem;
+    left: 75rem;
+    z-index: 9999;
+
+  }
+  
+  .imgchatappuser {
+    border: 1px solid orange;
+    border-radius: 100%;
+    width: 3rem;
+  }
+  .orangeheaderapp{
+    background-color: #11A0DC;
+    color: white;
+  }
+  
+  .notificationicon{
+    position: relative !important;
+    top: 0;
+    left: 0;
+    font-size: 1.1rem;
+    color: #fff;
+  }
+  
+  .btn-outline-secondary
+  {
+    color: white;
+    background: #11A0DC;
+    border-color: #11A0DC;
+  }
+  
+  /* .container {
+    margin: 0 auto;
+    background: #11A0DC;
+    overflow-y: scroll;
+  } */
+  #displayMessage{
+  
+    color: #fff;
+  }
+  
+  #chatApp {
+    display: none;
+    width: 30rem;
+    /* position: absolute; */
+    left: 49rem;
+    top: 24.5rem;
+    float: center;
+    /* z-index: 99999; */
+    position: fixed;
+        overflow-y: scroll;
+    /* background: orange; */
+  
+  }
+  #close-chat {
+    font-size: 1.1rem;
+    color: orange;
+    text-align: center;
+    position: absolute;
+    left: 28rem;
+  }
+.ui-dialog{
+    position: absolute;
+    /* height: auto;
+    width: 479px; */
+    top: 86.047px !important;
+    left: 784.5px !important;
+}
+  
+
+@media (max-width: 768px){
+    .buttonOpenChatApp {
+        left: 24rem;
+      }
+      #chatApp{
+        left: 2rem;
+        top: 8.9rem;
+        width: 25rem !important;
+        transform: translate(24%,-17%);
+
+        
+      }
+
+    #menus-toggle {
+        display: block;
+        margin-right: .5rem;
+    }
+    .notifybutton{
+        margin-left: 1rem;
+    }
+
+    .notifydesktop{
+        display: none;
+    }
+
+    .pb-2, .py-2 {
+        padding-top: 2rem;
+    }
+    #addTripform {
+        margin-bottom: 8rem;
+    }
+    #profilemargin{
+        margin-bottom: 7rem;
+    }
+    .helpcontent{
+        margin-bottom: 7rem;
+    }
+    #searchmargin { 
+        margin-bottom: 7rem;
+    }
+    #searchform{
+        margin-left: -1.4rem;
+    }
+}
+
+@media (max-width:500px){
+    .buttonOpenChatApp {
+        left: 19rem;
+        top: 34rem;
+      }
+    #chatApp{
+        left: -4.5rem;
+        width: 22rem !important;
+        top: 12rem;
+        position: fixed;
+        overflow-y: scroll;
+    }
+    #close-chat{
+        left: 20rem;
+    font-size: 1.3rem;
+    }
+}
+
+/* Message box starts here */
+.chatbox {
+    clear: both;
+    position: relative;
+  }
+  
+  .chatbox .arrow {
+    width: 12px;
+    height: 20px;
+    overflow: hidden;
+    position: relative;
+    float: left;
+    top: 6px;
+    right: -1px;
+  }
+  
+  .chatbox .arrow .outer {
+    width: 0;
+    height: 0;
+    border-right: 20px solid #000000;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .chatbox .arrow .inner {
+    width: 0;
+    height: 0;
+    border-right: 20px solid #ffffff;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    position: absolute;
+    top: 0;
+    left: 2px;
+  }
+  
+  .chatbox .message-body {
+    float: left;
+    width: 300px;
+    height: auto;
+    border: 1px solid #CCC;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    padding: 6px 8px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+  }
+  
+  .chatbox .message-body p {
+    margin: 0;
+  }
+
+  .notificationicon{
+      cursor: pointer;
+  }
+

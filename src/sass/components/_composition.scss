@@ -1,0 +1,506 @@
+.composition {
+    position: relative;
+
+    @include respond(tab-port) {
+        width: 100%;
+        margin: 3rem 0rem;
+    }
+
+    img {
+        width: 100%;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .2);
+        // border-radius: 2px;
+        transition: all .2s;
+        outline-offset: .5rem;
+
+        &:hover {
+            outline: 1rem solid rgba($color-orange, 0.5);
+            transform: scale(1.05) translateY(-.5rem);
+            box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
+            z-index: 20;
+            cursor: pointer;
+        }
+
+        @include respond(tab-port) {
+            position: relative;
+            width: inherit;
+            box-shadow: none;
+        }
+    }
+
+    &__photo {
+        width: 55%;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
+        border-radius: 2px;
+        position: absolute;
+        z-index: 10;
+        transition: all .2s;
+        outline-offset: 2rem;
+
+        @include respond(tab-port) {
+            float: left;
+            position: relative;
+            width: 33.33333333%;
+            box-shadow: 0 1.5rem 3rem rgba($color-black, .2);
+        }
+
+        &--p1 {
+            left: 0;
+            top: -2rem;
+
+            @include respond(tab-port) {
+                top: 0;
+                transform: scale(1.2);
+            }
+        }
+
+        &--p2 {
+            right: 0;
+            top: 2rem;
+
+            @include respond(tab-port) {
+                top: -1rem;
+                transform: scale(1.3);
+                z-index: 100;
+            }
+        }
+
+        &--p3 {
+            left: 20%;
+            top: 10rem;
+
+            @include respond(tab-port) {
+                top: 1rem;
+                left: 0;
+                transform: scale(1.1);
+            }
+        }
+
+        &:hover {
+            outline: 1.5rem solid $color-primary;
+            transform: scale(1.05) translateY(-.5rem);
+            box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
+            z-index: 20;
+        }
+
+    }
+
+    &:hover &__photo:not(:hover) {
+        transform: scale(.95);
+    }
+
+    //composition:hover composition__photo:not(:hover) {
+
+    @include clearfix;
+}
+
+.widgets {
+
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: nowrap;
+
+    @include respond(tab-port) {
+        margin-top: 6rem;
+        margin-bottom: 2rem;
+    }
+
+    &__apples {
+        margin-right: -2rem;
+
+        img {
+            width: 11rem;
+            margin-right: 3rem;
+            box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
+            border-radius: 2px;
+            transition: all .2s;
+            outline-offset: .5rem;
+
+            @include respond(tab-port) {
+                width: 19rem;
+                box-shadow: none
+            }
+
+            @include respond(phone) {
+                width: 16rem;
+            }
+        }
+
+        &--p1 {
+            &:hover {
+                outline: .5rem solid rgba($color-orange, 0.5);
+                transform: scale(1.05) translateY(-.5rem);
+                box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
+                z-index: 20;
+            }
+
+        }
+
+        &--p2 {
+            &:hover {
+                outline: .5rem solid rgba($color-orange, 0.5);
+                transform: scale(1.05) translateY(-.5rem);
+                box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
+                z-index: 20;
+                // margin-top: 1rem;
+            }
+
+        }
+
+    }
+
+
+    &__paypal {
+        margin-right: .5rem;
+
+        img {
+            width: 9.8rem;
+            box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
+            border-radius: 2px;
+            transition: all .2s;
+            outline-offset: .5rem;
+
+            @include respond(tab-port) {
+                height: 10rem;
+                box-shadow: none;
+            }
+
+            &:hover {
+                outline: 1rem solid rgba($color-orange, 0.5);
+                transform: scale(1.05) translateY(-.5rem);
+                box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
+                z-index: 20;
+            }
+        }
+
+    }
+
+
+    &__logo {
+
+        img {
+            width: 6rem;
+            height: 6rem;
+            margin-right: 3rem;
+
+            border-radius: 2px;
+            transition: all .2s;
+            outline-offset: .5rem;
+
+            @include respond(tab-port) {
+                margin-top: -1rem;
+                width: 8rem;
+                height: 11rem;
+            }
+
+            &:hover {
+                box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
+                outline: 1rem solid rgba($color-orange, 0.5);
+                transform: scale(1.05) translateY(-.5rem);
+                box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
+                z-index: 20;
+            }
+        }
+
+    }
+}
+
+.awesomefonts-icons {
+    margin-top: 1rem;
+
+    .fab {
+        font-size: 3rem;
+    }
+
+    a {
+        padding: .5rem;
+
+        &:hover {
+            padding: 1rem;
+        }
+
+        .fa-facebook-square {
+            color: $color-orange-dark;
+            box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
+            z-index: 20;
+            transition: all .2s;
+            outline-offset: 0rem;
+
+            @include respond(tab-port) {
+                box-shadow: none;
+            }
+
+            &:hover {
+                outline: 1rem solid rgba($color-orange, 0.5);
+                transform: scale(1.05) translateY(-.5rem);
+                box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
+                z-index: 20;
+                cursor: pointer;
+            }
+        }
+
+        .fa-twitter-square {
+            color: $color-blue;
+            box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
+            z-index: 20;
+            transition: all .2s;
+            outline-offset: 0rem;
+
+            @include respond(tab-port) {
+                box-shadow: none;
+            }
+
+            &:hover {
+                outline: 1rem solid rgba($color-orange, 0.5);
+                transform: scale(1.05) translateY(-.5rem);
+                box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
+                z-index: 20;
+                cursor: pointer;
+            }
+        }
+
+        .fa-google-plus-square {
+            color: $color-danger;
+            box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
+            z-index: 20;
+            transition: all .2s;
+            outline-offset: 0rem;
+
+            @include respond(tab-port) {
+                box-shadow: none;
+            }
+
+            &:hover {
+                outline: 1rem solid rgba($color-orange, 0.5);
+                transform: scale(1.05) translateY(-.5rem);
+                box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
+                z-index: 20;
+                cursor: pointer;
+            }
+        }
+
+        .fa-pinterest-square {
+            color: $color-red;
+            box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
+            z-index: 20;
+            transition: all .2s;
+            outline-offset: 0rem;
+
+            @include respond(tab-port) {
+                box-shadow: none;
+            }
+
+            &:hover {
+                outline: 1rem solid rgba($color-orange, 0.5);
+                transform: scale(1.05) translateY(-.5rem);
+                box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
+                z-index: 20;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.content-center {
+    margin: 10rem 22rem;
+
+    h3 {
+        margin-left: 1.5rem;
+    }
+
+    @include respond(tab-port) {
+        margin: 0;
+    }
+}
+
+.enable-notification,
+{
+    margin-left: -1rem;
+    cursor: pointer;
+
+    .fa-bell {
+        margin-right: 2rem;
+        margin-top: 2rem;
+        font-size: 2rem;
+        color: $color-white;
+        cursor: pointer;
+    }
+
+    //The good stuff
+.tooltip-toggle {
+    cursor: pointer;
+    position: relative;
+    @include respond(phone) {
+        margin-top: -8rem;
+    }
+
+    @include respond(tab-port){
+        margin-top: -8rem;
+    }
+    
+
+    //Tooltip text container
+    &::before {
+        position: absolute;
+        left: -17rem;
+        top: 0;
+        background-color: rgba($color-orange-dark, .9);
+        border-radius: 5px;
+        color: $color-white;
+        content: attr(aria-label); //This pulls in the text from the element with the tooltip
+        padding: 1rem;
+        text-transform: none;
+        transition: all 0.5s ease;
+        width: 16rem;
+    }
+
+    // //Tooltip arrow
+    // &::after {
+    //     position: absolute;
+    //     top: -5px;
+    //     left: -5px;
+    //     border: 0;
+    //     content: " ";
+    //     font-size: 2rem;
+    //     line-height: 0;
+    //     margin-left: 0;
+    //     width: 0;
+    // }
+
+    //Setting up the transition
+    &::before,
+    &::after {
+        color: #efefef;
+        font-family: monospace;
+        font-size: 1.6rem;
+        opacity: 0;
+        pointer-events: none;
+        text-align: center;
+    }
+
+    //Triggering the transition
+
+    &:hover::before,
+    &:hover::after {
+        opacity: 1;
+        transition: all 0.75s ease;
+    }
+
+}
+}
+
+.unable-notification {
+
+    margin-left: -1rem;
+    cursor: pointer;
+    display: none;
+
+    .fa-bell {
+        margin-right: 2rem;
+        margin-top: 2rem;
+        font-size: 2rem;
+        color: $color-red;
+        cursor: pointer;
+    }
+
+    //The good stuff
+.tooltip-toggle {
+    cursor: pointer;
+    position: relative;
+    
+    @include respond(phone) {
+        margin-top: -8rem;
+    }
+
+    @include respond(tab-port){
+        margin-top: -8rem;
+    }
+
+    //Tooltip text container
+    &::before {
+        position: absolute;
+        left: -17rem;
+        top: 0;
+        background-color: rgba($color-red, .9);
+        border-radius: 5px;
+        color: $color-white;
+        content: attr(aria-label); //This pulls in the text from the element with the tooltip
+        padding: 1rem;
+        text-transform: none;
+        transition: all 0.5s ease;
+        width: 16rem;
+    }
+
+    // //Tooltip arrow
+    // &::after {
+    //     position: absolute;
+    //     top: -5px;
+    //     left: -5px;
+    //     border: 0;
+    //     content: " ";
+    //     font-size: 2rem;
+    //     line-height: 0;
+    //     margin-left: 0;
+    //     width: 0;
+    // }
+
+    //Setting up the transition
+    &::before,
+    &::after {
+        color: #efefef;
+        font-family: monospace;
+        font-size: 1.6rem;
+        opacity: 0;
+        pointer-events: none;
+        text-align: center;
+    }
+
+    //Triggering the transition
+
+    &:hover::before,
+    &:hover::after {
+        opacity: 1;
+        transition: all 0.75s ease;
+    }
+
+}
+
+}
+
+.alert{
+
+    &__danger {
+        background: rgba($color-danger, .3);
+        color:$color-grey-dark-3;
+    }
+
+    &__success {
+        color: $color-primary;
+    }
+
+    &__info {
+        color: $color-blue;
+    }
+
+    &__warning {
+        color: $color-orange-light-2;
+    }
+
+}
+
+.localpickuppoint,
+.regonalpickuppoint {
+    a{
+        color: $color-grey-dark-3;
+        text-decoration: none;
+
+        &:hover {
+            color: $color-orange-light-2;
+        }
+    }
+}
+
+

@@ -1,0 +1,201 @@
+
+.navbar {
+
+    width: 100%;
+    background: $color-blue;
+    font-size: 1.3rem;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    display: flex;
+
+    @include respond(phone) {
+        flex-direction: column;
+    }
+    @include respond(tab-port) {
+        flex-direction: column;
+    }
+
+
+
+    &__list {
+        width: 75%;
+        margin: 0 auto;
+        padding: 0; 
+        text-align: right;
+        text-align: -webkit-right;
+        
+        @include respond(tab-port) {
+            width: 100%;
+            display: none;
+            text-align: left;
+            text-align: -webkit-left;
+        
+        }
+
+        @include respond(tab-land) {
+            display: block;
+            width: 100%;
+            text-align: left;
+        
+        }
+
+        @include respond(big-desktop) {
+            display: block;
+        
+        }
+
+        .navbar-right {
+            @include respond(tab-land) {
+                margin-right: 2rem;
+            
+            }
+
+            @include respond(tab-port){
+                margin-top: -44rem;
+                margin-bottom: 2rem;
+            }
+        }
+
+        @include respond(phone) {
+
+            width: 100%;
+            display: none
+
+        }
+    }
+
+    &__item {
+        list-style: none;
+        display: -webkit-inline-box;
+        padding: 2rem;
+
+        @include respond(tab-port) {
+            display: block;
+            &:hover {
+                border-bottom: 0;
+                
+            }
+        
+        }
+        @include respond(phone) {
+
+            display: block;
+            border-bottom: 0;
+
+        }  
+       
+    }
+    &__item:hover ~ &__link:hover {
+        color: $color-orange-light-2;
+    }
+    .active {
+            border-bottom: .2rem solid $color-orange-light-2;
+            color: $color-orange-light-2;
+        }
+
+    
+
+    &__link {
+        text-decoration: none;
+        letter-spacing: .2rem;
+        color: $color-white;
+        display: block;
+
+        &:hover {
+            border-bottom: .2rem solid $color-orange-light-2;
+            
+        }
+
+        &:hover,
+        &:focus {
+            color: $color-orange-light-2;
+        }
+    }
+
+    .toggle {
+        width: 100%;
+        padding: 3rem 4rem;
+        background: $color-blue;
+        text-align: left;
+        box-sizing: border-box;
+        display: none;
+
+        @include respond(tab-port) {
+            display: block;
+        
+        }
+        @include respond(phone) {
+
+            display: block;
+
+        }
+
+        .fas {
+            font-size: 3.5rem;
+            cursor: pointer;
+            color: $color-white;
+        }
+    }
+
+
+}
+
+.navbar-right {
+    display: block;
+        margin-right: -11.5rem;
+        float: right;
+        margin-top: .6rem;
+
+        // @include respond(tab-port){
+        //     margin-right: 19rem;
+        //     margin-bottom: 2rem;
+        // }
+        // @include respond(phone){
+        //     margin-right: 19rem;
+        //     margin-bottom: 2rem;
+        // }
+        // @include respond(tab-land){
+        //     margin-right: 81rem;
+        // }
+        // @include respond(big-desktop){
+        //     margin-right: 1.5rem;
+        // }
+
+        li {
+            list-style: none;
+        }
+}
+.register-span, .login-span {
+    padding: 0;
+    color: $color-white;
+    font-size: 1.4rem;
+}
+
+.login-span a {
+    color: $color-orange-dark;
+    text-decoration: none;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+}
+
+.login-span a:hover{color: $color-white;}
+
+.register-span a {
+    color: $color-white;
+    text-decoration: none;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+}
+
+.register-span a:hover{color: $color-white;}
+
+.login-register-middle-bar {
+    padding: .2rem;
+    margin: 0;
+    background: $color-orange-dark;
+    width: inherit;
+
+    margin-left: .5rem;
+        
+}

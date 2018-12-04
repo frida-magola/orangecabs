@@ -1,0 +1,204 @@
+.panel-primary>.panel-heading {
+    color: #fff;
+    background-color: #ffb605;
+    border-color: #ffb605;
+}
+
+.panel-primary {
+    border-color: #ffb605;
+}
+
+.chat
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.chat li
+{
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px dotted #ffb605;
+}
+
+.chat li.left .chat-body
+{
+    margin-left: 60px;
+}
+
+.chat li.right .chat-body
+{
+    margin-right: 60px;
+}
+.modal-body{
+    background-color: #333 !important;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+}
+
+.modal {
+    z-index: 20;
+    }
+    .modal-backdrop{
+        z-index: 10;
+    }
+
+.chat li .chat-body p
+{
+    margin: 0;
+    color: #777777;
+    background: #eeeeee !important;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    width: 84%;
+    border-radius: 5px;
+    
+    padding: 5px;
+    display: flex;
+
+
+}
+
+.panel .slidedown .glyphicon, .chat .glyphicon
+{
+    margin-right: 5px;
+}
+
+.panel-body
+{
+    overflow-y: scroll;
+    height: 250px;
+}
+
+::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+}
+
+button
+{
+    background: #ffb605;
+    color: #fff;
+    border:0;
+    padding:5px
+
+}
+#chat-btn {
+    width: 40px;
+    height: 28px;
+    background-color: #62cfc1;
+    border-radius: 4px;
+    position: relative;
+  }
+  #chat-btn:after {
+      
+      content: "chat";
+      display: block;
+      position: absolute;
+      width: 0;
+      height: 0;
+      right: 10px;
+      bottom: -10px;
+      border-left: 10px solid transparent;
+      border-right: 2px solid transparent;
+      border-top: 10px solid #62CFC1;
+  }
+
+  /*Modal*/
+  body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 40%;
+    width: 100%;
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s
+}
+
+/* Modal Content */
+.modal-content {
+    position: unset;
+    bottom: 50%;
+    background-color: #fefefe;
+    width: 40%;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s;
+    float:right;
+    padding-bottom: 50px;
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #ffb605;
+    color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #ffb605;
+    color: white;
+}
+
+/* Add Animation */
+@-webkit-keyframes slideIn {
+    from {bottom: -300px; opacity: 0} 
+    to {bottom: 0; opacity: 1}
+}
+
+@keyframes slideIn {
+    from {bottom: -300px; opacity: 0}
+    to {bottom: 0; opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+    from {opacity: 0} 
+    to {opacity: 1}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0} 
+    to {opacity: 1}
+}
+

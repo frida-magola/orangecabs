@@ -1,0 +1,24 @@
+{
+  "name": "orangecabs",
+  "version": "1.0.0",
+  "description": "orange cabs book your rider",
+  "main": "index.js",
+  "scripts": {
+    "watch:sass": "node-sass src/sass/main.scss src/css/style.css -w"
+  },
+  "keywords": [
+    "orange",
+    "cabs",
+    "rider",
+    "bookings",
+    "online",
+    "bookings",
+    "app",
+    "bookings"
+  ],
+  "author": "Quirky30 - NPC",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^4.9.3"
+  }
+}

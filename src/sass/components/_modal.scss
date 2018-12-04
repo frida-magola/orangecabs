@@ -1,0 +1,283 @@
+.modal {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0rem;
+    left: 0;
+    background-color: rgba($color-black, .8);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s;
+
+    @supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        background-color: rgba($color-black, .3);
+    }
+
+    &__content {
+        @include absCenter;
+
+        width: 75%;
+        background-color: $color-white;
+        box-shadow: 0 2rem 4rem rgba($color-black, .2);
+        border-radius: 3px;
+        display: table;
+        overflow: hidden;
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(.25);
+        transition: all .5s .2s;
+    }
+
+
+    &__text {
+        font-size: 1.4rem;
+        margin-bottom: 4rem;
+
+        // -moz-column-count: 2;
+        // -moz-column-gap: 4rem; //1em = 14px;
+        -moz-column-rule: 1px solid $color-grey-light-2;
+
+        // column-count: 2;
+        // column-gap: 4rem; //1em = 14px;
+        column-rule: 1px solid $color-grey-light-2;
+
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+        -webkit-hyphens: auto;
+        hyphens: auto;
+    }
+
+    //Open states
+    &:target {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &:target &__content {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    &__close {
+        &:link,
+        &:visited {
+            color: $color-orange-dark;
+            position: absolute;
+            top: 11.5rem;
+            left: 2rem;
+            font-size: 3rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all .2s;
+            line-height: 1;
+
+            @include respond(phone){
+                left: 3rem;
+                top: 10.5rem;
+            }
+    
+            @include respond(tab-port){
+                left: 3rem;
+            }
+        }
+
+        &:hover {
+            color: $color-blue;
+        }
+
+        
+    }
+ 
+    &__cancel {
+        &:link,
+        &:visited {
+            color: $color-white;
+            position: absolute;
+            top: 53rem;
+    left: 38rem;
+            font-size: 3rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all .2s;
+            line-height: 1;
+
+            @include respond(tab-port){
+                top: 67rem;
+                left: 16rem;
+            }
+
+            @include respond(phone){
+                top: 70rem;
+                left: 16rem;
+            }
+        }
+
+        &:hover {
+            color: $color-white;
+        }
+    }
+
+    &__cancelsignup {
+        &:link,
+        &:visited {
+            color: $color-white;
+            position: absolute;
+            top: 60rem;
+            left: 42rem;
+            font-size: 3rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all .2s;
+            line-height: 1;
+
+            @include respond(tab-port){
+                top: 73rem;
+                left: 11rem;
+            }
+
+            @include respond(phone){
+                left: 10rem;
+                top: 78rem;
+            }
+        }
+
+        &:hover {
+            color: $color-white;
+        }
+    }
+
+    &__cancelforgotpass {
+        &:link,
+        &:visited {
+            color: $color-white;
+            position: absolute;
+            top: 41rem;
+            left: 26rem;
+            font-size: 3rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all .2s;
+            line-height: 1;
+
+            @include respond(tab-port){
+                top: 73rem;
+                left: 11rem;
+            }
+
+            @include respond(phone){
+                left: 10rem;
+                top: 78rem;
+            }
+        }
+
+        &:hover {
+            color: $color-white;
+        }
+    }
+
+    &__cancelactivate {
+
+        &:link,
+        &:visited {
+            color: $color-white;
+            position: absolute;
+            top: 41rem;
+            left: 35rem;        
+            font-size: 3rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all .2s;
+            line-height: 1;
+            display: none;
+
+            @include respond(tab-port){
+                top: 73rem;
+                left: 11rem;
+            }
+
+            @include respond(phone){
+                left: 10rem;
+                top: 78rem;
+            }
+
+            @include respond(big-desktop){
+                top: 41rem;
+    left: 52rem;
+            }
+        }
+
+        &:hover {
+            color: $color-white;
+        }
+
+    }
+
+    &__canceltrip{
+        &:link,
+        &:visited {
+            color: $color-white;
+            position: absolute;
+            top: 55.2rem;
+            left: 39rem;
+            font-size: 3rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all .2s;
+            line-height: 1;
+
+            @include respond(tab-port){
+                top: 64.2rem;
+                left: 17rem;
+            }
+
+            @include respond(phone){
+                // left: 61rem;
+            }
+        }
+
+        &:hover {
+            color: $color-white;
+        }
+
+        
+    }
+
+    &__cancelpay {
+
+        &:link,
+        &:visited {
+            color: $color-white;
+            position: absolute;
+            top: 65.2rem;
+            left: 38rem;
+            font-size: 3rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all .2s;
+            line-height: 1;
+
+            @include respond(tab-port){
+                // top: 64.2rem;
+                // left: 17rem;
+            }
+
+            @include respond(phone){
+                // left: 61rem;
+            }
+        }
+
+        &:hover {
+            color: $color-white;
+        }
+
+    }
+
+
+}
+
+.activate-link{
+    color: $color-orange-light-2;
+}
+

@@ -1,0 +1,140 @@
+﻿.cursorily{ cursor: pointer;}
+.hov:hover{ color: #000;}
+.ico-size{font-size: 16px;}
+.ico-size-month{font-size: 26px!important; line-height: 26px!important;}
+.ico-size-large{font-size: 1.5rem !important;; line-height: 30px;}
+.dtp_main{ border: solid 1px #eee; border-radius: 3px; background-color: #fff; padding: 8px 0 8px 8px;color: #333;}
+.dtp_main span, .dtp_main i{ display: inline-block; padding-right: 8px;}
+.dtp_modal-win{position: fixed;left: 0; top: 0; width: 100%; height: 100%;
+    z-index: 999; background-color: #eeeeee; opacity: 0;}
+.dtp_modal-content{    
+    background: linear-gradient(to right, 
+    #ffb900, #ff7730);
+    border-radius: 10px;
+    width: 37%;
+    position: absolute;
+    z-index: 999;
+    top: 7.5rem !important;
+    left: 92px;
+    font-size: 14px;
+    font-weight: normal;}
+.dtp_modal-content-no-time{ background-color: #fff; border-radius: 10px; width: 312px;
+    position: absolute; z-index: 1000; top: 100px; left: 100px; font-size: 16px;font-weight: normal;}
+.dtp_modal-title{    
+    border-bottom: solid .1rem #01adff;
+    padding: 4px 59px;
+    margin-bottom: 16px;
+    font-size: 1rem;
+    color: #333; }
+.dtp_modal-cell-date{
+    width: 294px;
+    float: left;
+    margin-bottom: -40px;
+    margin-top: 0px;
+}
+.dtp_modal-cell-time{width: 293px; float: left; direction: ltr;}
+.dtp_modal-months{ color: #7d7d7d; text-align: center; font-size: 20px; padding: 0 20px;}
+.dtp_modal-months span{ display: inline-block; padding: 10px 20px; width: 182px;}
+.dtp_modal-calendar{ 
+    width: 266px; margin-left: 1rem;
+    line-height: .6rem; }
+.dtp_modal-calendar-cell{ width: 38px; padding: 7px 0; display: inline-block; text-align: center;}
+.dtp_modal-colored{ color: #01adff; }
+.dtp_modal-grey{ color: #7d7d7d; }
+.dtp_modal-cell-selected{ background-color: #01adff; border-radius: 48%;  transition: background-color 1s ease-out;}
+.dtp_modal-time-block{ 
+    height: 181px;
+    width: 310px;
+    margin-top: .5rem;
+}
+.dpt_modal-button{ 
+    background-color: #01adff;
+    color: #fff;
+    font-size: .9rem;
+    padding: .2rem .3rem;
+    float: left;
+    text-align: center;
+    display: inline-block;
+    margin-left: 7rem;
+    cursor: pointer;
+    border: solid 1px #fff;
+    border-radius: 3px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: -2.5rem;
+}
+.dtp_modal-time-line{ text-align: center; color: #7d7d7d; font-size: 20px; padding-top: 15px;  }
+.dtp_modal-time-mechanic{ padding-top: 16px;}
+.dtp_modal-append{ color: #7d7d7d; padding-left: 108px; font-weight: normal; }
+.dtp_modal-midle{ display: inline-block; width: 40px; }
+.dtp_modal-midle-dig{display: inline-block; width: 16px; text-align: center; }
+.dtp_modal-digits{ 
+    font-size: 1.1rem;
+    padding-left: 7.2rem;
+    color: #333;
+}
+.dtp_modal-digit{  }
+
+#result2 .dtp_modal-content {
+    top: -1rem !important;
+}
+
+/* // Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+
+    .dtp_modal-content {
+
+        top: 40rem !important;
+        width: 88%;
+    }
+
+    .dpt_modal-button {
+        margin-top: -2.5rem;
+    }
+
+}
+
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) { 
+
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+}
+
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}
+
+/* // Large devices (desktops, 992px and up) */
+/* @media (max-width: 992px) {
+
+    .dtp_modal-content {
+        top: 37rem !important;
+    }
+ } */
+
+/* // Medium devices (tablets, 768px and up) */
+/* @media  (max-width: 768px) { 
+    .dtp_modal-content {
+        top: 42rem !important;
+        width: 88%;
+    }
+ } */
+
+ /* // Small devices (landscape phones, 576px and up) */
+/* @media (max-width: 576px) {
+    .dtp_modal-content {
+        top: 40rem !important;
+        width: 88%;
+    }
+    .dpt_modal-button {
+        margin-top: -2.5rem;}
+} */
