@@ -4,6 +4,10 @@ session_start();
 
 include('connection.php');
 
+if(isset($_SESSION['user_id'])){
+    $user_id = $_SESSION['user_id'];
+}
+
 //define error messages
 $missingCurrentPassword ='<p><strong>Please enter a Current password!</strong></p>';
 $incorrectCurrentPassword ='<p><strong>The Password entered is incorrect!</strong></p>';

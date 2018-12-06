@@ -53,6 +53,7 @@ $p='payment';
                     <th>Drop of point</th>
                     <th>Status Payment</th>
                     <th>Date & time payment</th>
+                    
                 </tr>
             </thead>
 

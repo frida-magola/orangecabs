@@ -373,13 +373,13 @@ element.style {
     position: absolute;
     left: 28rem;
   }
-.ui-dialog{
-    position: absolute;
+/* .ui-dialog{ */
+    /* position: absolute; */
     /* height: auto;
     width: 479px; */
-    top: 86.047px !important;
+    /* top: 86.047px !important;
     left: 784.5px !important;
-}
+} */
   
 
 @media (max-width: 768px){
@@ -505,3 +505,24 @@ element.style {
       cursor: pointer;
   }
 
+  .adminchatbox{
+    top: 5.5rem !important;
+  }
+  .popup-driver {
+    width: 7rem !important;
+  }
+  .successmessage{
+    margin:0 4rem; padding:1rem .8rem;
+  }
+
+  .driver-info{
+      list-style: none;
+      padding: 0
+  }
+  .driver-list{
+      margin-right: .2rem;
+  }
+  .imgdriver img{
+    width: 30% !important;
+
+  }

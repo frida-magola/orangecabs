@@ -1331,7 +1331,7 @@ WHERE cars.status_car='A'";
                 <?php include('../inc/footer.php');?>
 
                 <!-- start chat -->
-                <div class="card" id="chatApp">
+                <div class="card adminchatbox" id="chatApp">
                     <div class="card-header">
                         <p>Chat With <i class="fas fa-times" id="close-chat"></i></p>
                     </div>

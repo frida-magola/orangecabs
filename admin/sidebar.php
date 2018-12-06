@@ -42,9 +42,9 @@
               <a class="nav-link " href="?p=payment"><i class="fas fa-credit-card"></i>Payments</a>
             </li>
 
-            <li class="nav-item <?php if($p == 'chat'){echo 'active';}?>">
+            <!-- <li class="nav-item <?php //if($p == 'chat'){echo 'active';}?>">
               <a class="nav-link " href="?p=chat"><i class="far fa-comment-alt"></i>Chats</a>
-            </li>
+            </li> -->
 
             <li class="nav-item <?php if($p == 'profile'){echo 'active';}?>">
               <a class="nav-link " href="?p=profile"><i class="fas fa-user-circle"></i>Profile</a>

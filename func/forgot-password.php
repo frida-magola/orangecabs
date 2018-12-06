@@ -74,6 +74,9 @@ $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
 $user_id = $row['user_id'];
 
+//create session 
+$_SESSION['user_id'] = $user_id;
+
 //create a unique activation code
  $rand_opt = substr(str_shuffle("0123456789"), 0, 5);
     
@@ -122,21 +125,23 @@ $message = 'Confirm registration';
     $mail->Subject = 'Reset your password';
     $mail->Body = "<div style='alert success'>
  
-Your one time password is. $rand_opt, Enter this OPT to activate your account <br>
- http://localhost/orangecabs/func/resetpassword.php?user_id=$user_id.&key=$key
-                
- </div>";
+    Please Click on the link to Reset your password<br>
+    http://localhost/orangecabs/func/resetpassword.php?email=$email.&key=$key.&user_id=$$user_id</div>";
 
     $mail->AltBody = $message;
 
     if (!$mail->send()) {
 
-        echo 'Message could not be sent.';
-        echo 'Mailer Error: ' . $mail->ErrorInfo;
+        echo '<div class="alert danger">
+                <p>Message could not be sent.</p>
+                <p>Mailer Error: Check your Network connect</p>
+            </div>';
+        // echo ' ;
+        // . $mail->ErrorInfo
 
     } else {
 
-        echo "<div class='alert success'>An Email has been sent to $email. Please Click on the link to <a href=\"http://localhost/orangecabs/func/resetpassword.php?mobile=". urlencode($user_id)."&key=$key\" class=\"activate-link\">reset your password</a>.</div>";
+        echo "<div class='alert success'>An Email has been sent to $email. Please Click on the link to Reset your password.</div>";
     }
 
 

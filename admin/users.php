@@ -48,7 +48,7 @@ echo "There was an error retrieving the username and email from the database!";
                         <th>Mobile</th>
                         <th>Email</th>
                         <th>Status</th>
-                        <!-- <th>Role</th> -->
+                        <th>Connect</th>
                         <th>Action</th>
                         
                         </tr>
@@ -68,7 +68,7 @@ echo "There was an error retrieving the username and email from the database!";
                                     $username = $row['username'];
                                     $mobile = $row['mobile'];
                                     $email = $row['email'];
-                                    // $role = $row['role'];
+                                    $is_connect= $row['is_connect'];
                                     $verify = $row['verify'];
                                     $profile = $row['profilepicture'];
                                     
@@ -98,6 +98,16 @@ echo "There was an error retrieving the username and email from the database!";
                                     echo "<a class=\"badge badge-success\">active</a>";
                                 }
                                 
+                                ?>
+                            </td>
+
+                            <td>
+                                <? if($is_connect == 1){
+                                    echo  "<span class='badge badge-success'>online</span>";
+                                    }
+                                    else{
+                                        echo "<span class='badge badge-danger'>offline</span>";
+                                    }
                                 ?>
                             </td>
 

@@ -4,51 +4,19 @@ session_start();
 
 include('notification_db.php');
 
-// if (isset($_SESSION['user_id'])) {
-
-// $user_id = $_SESSION['user_id'];
-
-// //get username and email
-// $sql = "SELECT * FROM users WHERE user_id='$user_id'";
-
-// $result = mysqli_query($link, $sql);
-
-// $count = mysqli_num_rows($result);
-
-// if ($count == 1) {
-
-// $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-
-// $username = $row['username'];
-// $mobile = $row['mobile'];
-// $email = $row['email'];
-// $profile = $row['profilepicture'];
-// // $id = $row['user_id'];
-
-// } 
-
-// }
-// $output = '';
-
   if(isset($_GET['trip_id']) && isset($_GET['user_id'])){
                         
-                        $_SESSION['trip_id'] = $_GET['trip_id'];
-                        $_SESSION['user_id'] = $_GET['user_id'];
+        $_SESSION['trip_id'] = $_GET['trip_id'];
+        $_SESSION['user_id'] = $_GET['user_id'];
                         
-                        // var_dump($_SESSION['user_id']);
+        $query = "UPDATE trips SET status_pay='paid',payment='1',pay_information='successfully processed' WHERE trip_id='".$_SESSION['trip_id']."' AND user_id='".$_SESSION['user_id']."'";
                         
-                        // $date = date('Y-m-d h:i:s', time());
-                        $query = "UPDATE trips SET status_pay='paid',payment='1',pay_information='successfully processed' WHERE trip_id='".$_SESSION['trip_id']."' AND user_id='".$_SESSION['user_id']."'";
+        // $query = "INSERT INTO payement(`trip_id`,`payment_status`,`user_id`,`timestamp`) VALUES('".$_SESSION['trip_id']."','1','".$_SESSION['user_id']."','$date')";
                         
-                        // $query = "INSERT INTO payement(`trip_id`,`payment_status`,`user_id`,`timestamp`) VALUES('".$_SESSION['trip_id']."','1','".$_SESSION['user_id']."','$date')";
-                        
-                        $result = $link->prepare($query);
-                        $result->execute();
-                        
-                        // $output = '
-                        
-                    }
+        $result = $link->prepare($query);
+        $result->execute();
 
+   }
 ?>
 
 
@@ -93,27 +61,171 @@ include('notification_db.php');
 
 <body>
 
-    <div class="jumbotron text-center">
-        
-       <h5 class="h4">Online Bookings / Your payment has been cancelled</h5>
+    <div class="container">
 
-    </div>
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                <h5 class="h4">Online Bookings / Driver Profile </h5>
+            </div>
 
-    <div class="container" >
+          
+                    <?php
+                    $profilepicture = '';
+                            //run a query to look for notes corresponding to user_id
+                            $sql = "SELECT * FROM cars
+                            INNER JOIN model_car
+                            ON cars.vehicule_model = model_car.modelcar_id 
+                            INNER JOIN users
+                            ON cars.driver_id = users.user_id
+                            INNER JOIN trips
+                            ON cars.vehicule_model = trips.car_id
+                            WHERE trips.user_id='".$_SESSION['user_id']."' ORDER BY trip_id DESC";
+
+                            
+                            //shows trips or alert message
+                            $result = $link->prepare($sql);
+                            $result->execute();
+                            if($result->rowCount() > 0){
+
+                                foreach($result as $row){
+
+                                    // var_dump($row); die();
+
+                                        $origine = $row['departure'];
+                                        $destination = $row['destination'];
+                                        $distance = $row['distance'];
+                                        $duration = $row['duration'];
+                                        $drivername = $row['username'];
+                                        $email = $row['email'];
+                                        $drivermobile = $row['mobile'];
+                                        $profile = $row['profilepicture'];
+                                        $car = $row['car_id'];
+                                        $status = $row['status_pay'];
+                                        $driver = $row['driver_id'];
+                                        $date = date('D d M, Y h:i', strtotime($row['date']));
+                                        $trip_id = $row['trip_id'];
+                                        $model_type = $row['model_type'];
+                                        $brand_car = $row['brand_car'];
+                                        $color_car = $row['color'];
+                                        // $picturecar = $row['picture'];
+                                        $registration = $row['vehicule_registration'];
+
+
+
+                                        // if(!isset($profile)){
+
+                                        //     $profilepicture .= "<img src='profilepicture/useravater.png' alt='Photo user' class='popup-driver'>";
+                                        
+                                        // }else{
     
-                <div class="row text-center">
+                                        //     $profilepicture .= "<img src='$profile' class='popup__img' id='imagePreview'>";
+                                        // }
+
+                                        //echo $drivername;
+
+                                        echo "
+                                            <div class=\"row\">
+                
+                                            <div class=\"col-md-4 imgdriver\">
+                                                <!-- upload picture -->
+                                            <h6 class=\"heading-secondary\">Change your profile picture</h6>
+                                                <div class=\"row\">
+                                                    <div class=\"col profile\" style=\"width:4rem;\">
+                                                        <div>
+                                                            <img src='profilepicture/useravater.png' class='popup__img' alt='Profile picture'>
+                                                        </div>
+                                                        <ul class='driver-info'>  
+                                                            <li><span class='badge badge-secondary driver-list'>Driver name:&nbsp;</span>$drivername</li>
+                                                            <li><span class='badge badge-secondary driver-list'>Driver email:&nbsp;</span>$email</li>
+                                                            <li><span class='badge badge-secondary driver-list'>Driver cell:&nbsp;</span>$drivermobile</li>
+                                                        </ul>
+                                                    </div>
+                                                </div> 
+                                                </div>
+
+                                            <div class=\"col-md-8\" id=\"profilemargin\">
+                                            <h6 class=\"heading-secondary\">Information about the car for your trip</h6>
+                                            <div class=\"profile-content\">
+                                                <div class=\"popup__right\">
+                                                    <div class=\"popup__text\">
+                                                        <table class=\"table table-striped\">
+                                                            <tr>
+                                                                <td>Pick up point&nbsp; &nbsp;</td>
+                                                                <td id=\"usernamereload\">
+                                                                    $origine
+                                                                </td>
+                                                            </tr>
+                        
+                                                            <tr>
+                                                                <td>Drop of point&nbsp;&nbsp;</td>
+                                                                <td>
+                                                                    $destination
+                                                                </td>
+                                                            </tr>
+                        
+                                                            <tr>
+                                                                <td>Duration&nbsp;&nbsp;</td>
+                                                                <td>
+                                                                    $duration
+                                                                </td>                                                                
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td>Type an registration taxi &nbsp;&nbsp;</td>
+                                                                <td>
+                                                                    $model_type, &nbsp; $registration
+                                                                </td>                                                                
+                                                            </tr>
+                                                            <tr>
+                                                            <td>Brand and color taxi&nbsp;&nbsp;</td>
+                                                            <td>
+                                                                $brand_car, &nbsp; $color_car
+                                                            </td>                                                                
+                                                        </tr>
+                        
+                                                            <tr>
+                                                                <td>Driver coming&nbsp; &nbsp;</td> 
+                                                                <td type=\"password\">
+                                                                   Timer
+                                                                </td>
+                                                        </table>
+                                                    </div>
+                        
+                                                </div>
+                                            </div>
+                                        </div>
+                                        ";
+
+                                }
+
+                                
+
+                            }
+                                
+                    
+                            ?>
+                          
+                </div>
+
+
+                                
+</div>
+
+    
+                <div class="row successmessage" style="">
+                    <div class="card" style="    margin: 0 auto;
+    padding: 1rem; margin-bottom:4rem;">
                     <?
                       
                     
-                    ?>
-                    <p>Your payment trip have been  placed!</p>
-                    <p>Your payment for the trip have been successfully procesed!</p>
-                    <p>You can view your order history by going to <a href="https://orangecabs.joburg/func/bookings.php?p=payment"class="text-danger"><b>payments<b></p>
-                    <p>Thank you for travelling with us, good journey!</p>
-                    <a href="https://orangecabs.joburg/func/bookings.php?p=mytrip" type="button" class="btn btn-outline-warning btn-lg"> <i class="fas fa-arrow-circle-left"></i>Back</a>
-                </div>
+                      ?>
+                      <p><strong>N.B:</strong>Your payment trip have been  placed!</p>
+                      <p>Your payment for the trip have been successfully procesed!</p>
+                      <p>You can view your order history by going to <a href="https://orangecabs.joburg/func/bookings.php?p=payment"class="text-danger"><b>payments<b></p>
+                      <p>Thank you for travelling with us, good journey!</p>
+                      <a href="https://orangecabs.joburg/func/bookings.php?p=mytrip" type="button" class="btn btn-outline-warning"> <i class="fas fa-arrow-circle-left" style="font-size:1.2rem;"></i>Back</a>
 
-    </div>
+                    </div>
+                </div>
 
 </body>
 

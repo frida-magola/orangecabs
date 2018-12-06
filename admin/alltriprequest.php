@@ -55,7 +55,7 @@ echo "There was an error retrieving the username and email from the database!";
 ?>
     
     <div class="table-responsive">  
-    <table class="table-striped" id="datatable">
+    <table class="table table-striped" id="datatable">
 <thead>
                         <tr>
                         <th>Pick up point</th>

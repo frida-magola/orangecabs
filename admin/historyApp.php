@@ -59,7 +59,7 @@ echo "There was an error retrieving the username and email from the database!";
         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
             <div class="card-body">
                 <div class="table-responsive">  
-                    <table class="table-striped" id="datatable">
+                    <table class="table table-striped" id="datatable">
                                 <thead>
                                         <tr>
                                         <th>Pick up point</th>
@@ -162,7 +162,7 @@ echo "There was an error retrieving the username and email from the database!";
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
             <div class="card-body">
                 <div class="table-responsive">  
-                    <table class="table-striped" id="datatable">
+                    <table class="table table-striped" id="datatable">
                                 <thead>
                                         <tr>
                                         <th>Pick up point</th>
@@ -268,7 +268,7 @@ echo "There was an error retrieving the username and email from the database!";
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
             <div class="card-body">
                 <div class="table-responsive">  
-                    <table class="table-striped" id="datatable">
+                    <table class="table table-striped" id="datatable">
                                 <thead>
                                         <tr>
                                         <th>Pick up point</th>
@@ -363,7 +363,7 @@ echo "There was an error retrieving the username and email from the database!";
     </div>
 
     <!-- CHAT HISTORY -->
-    <div class="card">
+    <!-- <div class="card">
         <div class="card-header" id="headingFour">
         <h5 class="mb-0">
             <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
@@ -374,103 +374,103 @@ echo "There was an error retrieving the username and email from the database!";
         <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
             <div class="card-body">
                 <div class="table-responsive">  
-                    <table class="table-striped" id="datatable">
+                    <table class="table table-striped" id="datatable">
                                 <thead>
                                         <tr>
                                         <th>Pick up point</th>
                                         <th>Drop of point</th>
                                         <th>Price/ Rand</th>
                                         <th>Distance Duration</th>
-                                        <!-- <th></th> -->
+                                        <th></th> -->
                                         <!-- <th>Amount of riders</th> -->
                                         <!-- <th>Name of one rider</th> -->
-                                        <th>Date & time pickup</th>
+                                        <!-- <th>Date & time pickup</th>
                                         <th>Status pay</th>
                                         <th>Actions</th>
                                         
                                         </tr>
                                     </thead>
 
-                                    <tbody>
+                                    <tbody> -->
                                         <?php
                                         
                                         //run a query to look for notes corresponding to user_id
-                                        $sql = "SELECT * FROM trips WHERE trips.date < DATE(NOW()) AND is_delete='0' AND status_pay='paid' ORDER BY trip_id DESC";
+                                        //$sql = "SELECT * FROM trips WHERE trips.date < DATE(NOW()) AND is_delete='0' AND status_pay='paid' ORDER BY trip_id DESC";
                                         // $sql = "SELECT * FROM trips WHERE  trips.date >= DATE(NOW()) AND is_delete='0' AND status_pay='unpaid' ORDER BY trip_id DESC";
 
                                         //shows trips or alert message
-                                        if($result = mysqli_query($link, $sql)){
+                                        // if($result = mysqli_query($link, $sql)){
 
-                                            if(mysqli_num_rows($result)>0){
+                                        //     if(mysqli_num_rows($result)>0){
 
-                                                while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-                                                    $origine = $row['departure'];
-                                                    $destination = $row['destination'];
-                                                    $amountofriders = $row['amountofriders'];
-                                                    $nameofonerider = $row['nameofonerider'];
-                                                    $distance = $row['distance'];
-                                                    $duration = $row['duration'];
-                                                    $price = $row['price'];
-                                                    $status = $row['status_pay'];
-                                                    $date = date('D d M, Y h:i', strtotime($row['date']));
-                                                    $trip_id = $row['trip_id'];
+                                        //         while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+                                        //             $origine = $row['departure'];
+                                        //             $destination = $row['destination'];
+                                        //             $amountofriders = $row['amountofriders'];
+                                        //             $nameofonerider = $row['nameofonerider'];
+                                        //             $distance = $row['distance'];
+                                        //             $duration = $row['duration'];
+                                        //             $price = $row['price'];
+                                        //             $status = $row['status_pay'];
+                                        //             $date = date('D d M, Y h:i', strtotime($row['date']));
+                                        //             $trip_id = $row['trip_id'];
                                                     
                                         ?>
                                         <tr>
                                         
-                                            <td><?php echo $origine ; ?></td>
-                                            <td><?php echo $destination; ?></td>
-                                            <td><?php echo "<strong>R</strong>".$price; ?></td>
-                                            <td><?php echo $distance .",", $duration ; ?></td>
+                                            <td><?php //echo $origine ; ?></td>
+                                            <td><?php //echo $destination; ?></td>
+                                            <td><?php //echo "<strong>R</strong>".$price; ?></td>
+                                            <td><?php //echo $distance .",", $duration ; ?></td>
                                             <!-- <td><?php //echo ?></td> -->
                                             <!-- <td><?php //echo $amountofriders; ?></td> -->
                                             <!-- <td><?php //echo $nameofonerider; ?></td> -->
-                                            <td><?php echo $date; ?></td>
+                                            <td><?php //echo $date; ?></td>
                                             <td>
                                                 <?php 
-                                                if($status == "unpaid") {
-                                                    echo "
-                                                        <span class=\"badge badge-warning\">Unpaid</span>
-                                                    ";
-                                                }
-                                                else {
-                                                    echo "<span class=\"badge badge-info\">Paid</span>";
-                                                }
+                                                // if($status == "unpaid") {
+                                                //     echo "
+                                                //         <span class=\"badge badge-warning\">Unpaid</span>
+                                                //     ";
+                                                // }
+                                                // else {
+                                                //     echo "<span class=\"badge badge-info\">Paid</span>";
+                                                // }
                                                 
                                                 ?>
                                             </td>
 
                                             <td>
 
-                                                <i class="far fa-trash-alt  editmode btn-outline-danger" 
+                                                <!-- <i class="far fa-trash-alt  editmode btn-outline-danger" 
                                                 data-toggle="modal" data-target="#deletedeleteModal" id="delete" 
-                                                data-trip_id="<?php echo $trip_id ;?>"></i>
+                                                data-trip_id="<?php //echo $trip_id ;?>"></i>
                                                 
                                                 <i class="fas fa-info-circle  editmode btn-outline-warning "  
                                                 data-toggle="modal" data-target="#infouser" id="moreinfo" 
-                                                data-trip_id="<?php echo $trip_id ;?>"> 
+                                                data-trip_id="<?php //echo $trip_id ;?>">  -->
                                         </tr>
                                         <?
-                                        }
-                                    }else{
-                                    }
+                                //         }
+                                //     }else{
+                                //     }
                                     
-                                }else{  
+                                // }else{  
                                 
-                                    echo '<div class="alert alert-warning">An error occured!</div>';
+                                    //echo '<div class="alert alert-warning">An error occured!</div>';
                                 
-                                }
+                                //}//
                                     ?>                                                
-                                        
+<!--                                         
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- NOTIFICATION -->
-    <div class="card">
+    <!-- <div class="card">
         <div class="card-header" id="headingFive">
         <h5 class="mb-0">
             <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
@@ -481,98 +481,98 @@ echo "There was an error retrieving the username and email from the database!";
         <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
             <div class="card-body">
                 <div class="table-responsive">  
-                    <table class="table-striped" id="datatable">
+                    <table class="table table-striped" id="datatable">
                                 <thead>
                                         <tr>
                                         <th>Pick up point</th>
                                         <th>Drop of point</th>
                                         <th>Price/ Rand</th>
                                         <th>Distance Duration</th>
-                                        <!-- <th></th> -->
+                                        <th></th> -->
                                         <!-- <th>Amount of riders</th> -->
                                         <!-- <th>Name of one rider</th> -->
-                                        <th>Date & time pickup</th>
+                                        <!-- <th>Date & time pickup</th>
                                         <th>Status pay</th>
-                                        <th>Actions</th>
+                                        <th>Actions</th> -->
                                         
                                         </tr>
-                                    </thead>
+                                    <!-- </thead>
 
-                                    <tbody>
+                                    <tbody> -->
                                         <?php
                                         
                                         //run a query to look for notes corresponding to user_id
-                                        $sql = "SELECT * FROM trips WHERE  trips.date >= DATE(NOW()) AND is_delete='0' AND status_pay='unpaid' ORDER BY trip_id DESC";
+                                        //$sql = "SELECT * FROM trips WHERE  trips.date >= DATE(NOW()) AND is_delete='0' AND status_pay='unpaid' ORDER BY trip_id DESC";
 
                                         //shows trips or alert message
-                                        if($result = mysqli_query($link, $sql)){
+                                        // if($result = mysqli_query($link, $sql)){
 
-                                            if(mysqli_num_rows($result)>0){
+                                        //     if(mysqli_num_rows($result)>0){
 
-                                                while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-                                                    $origine = $row['departure'];
-                                                    $destination = $row['destination'];
-                                                    $amountofriders = $row['amountofriders'];
-                                                    $nameofonerider = $row['nameofonerider'];
-                                                    $distance = $row['distance'];
-                                                    $duration = $row['duration'];
-                                                    $price = $row['price'];
-                                                    $status = $row['status_pay'];
-                                                    $date = date('D d M, Y h:i', strtotime($row['date']));
-                                                    $trip_id = $row['trip_id'];
+                                        //         while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+                                        //             $origine = $row['departure'];
+                                        //             $destination = $row['destination'];
+                                        //             $amountofriders = $row['amountofriders'];
+                                        //             $nameofonerider = $row['nameofonerider'];
+                                        //             $distance = $row['distance'];
+                                        //             $duration = $row['duration'];
+                                        //             $price = $row['price'];
+                                        //             $status = $row['status_pay'];
+                                        //             $date = date('D d M, Y h:i', strtotime($row['date']));
+                                        //             $trip_id = $row['trip_id'];
                                                     
                                         ?>
                                         <tr>
                                         
-                                            <td><?php echo $origine ; ?></td>
-                                            <td><?php echo $destination; ?></td>
-                                            <td><?php echo "<strong>R</strong>".$price; ?></td>
-                                            <td><?php echo $distance .",", $duration ; ?></td>
+                                            <td><?php //echo $origine ; ?></td>
+                                            <td><?php //echo $destination; ?></td>
+                                            <td><?php //echo "<strong>R</strong>".$price; ?></td>
+                                            <td><?php //echo $distance .",", $duration ; ?></td>
                                             <!-- <td><?php //echo ?></td> -->
                                             <!-- <td><?php //echo $amountofriders; ?></td> -->
                                             <!-- <td><?php //echo $nameofonerider; ?></td> -->
-                                            <td><?php echo $date; ?></td>
+                                            <td><?php //echo $date; ?></td>
                                             <td>
                                                 <?php 
-                                                if($status == "unpaid") {
-                                                    echo "
-                                                        <span class=\"badge badge-warning\">Unpaid</span>
-                                                    ";
-                                                }
-                                                else {
-                                                    echo "<span class=\"badge badge-info\">Paid</span>";
-                                                }
+                                //                 if($status == "unpaid") {
+                                //                     echo "
+                                //                         <span class=\"badge badge-warning\">Unpaid</span>
+                                //                     ";
+                                //                 }
+                                //                 else {
+                                //                     echo "<span class=\"badge badge-info\">Paid</span>";
+                                //                 }
                                                 
-                                                ?>
-                                            </td>
+                                //                 ?>
+                                <!-- //             </td>
 
-                                            <td>
+                                //             <td> -->
 
-                                                <i class="far fa-trash-alt  editmode btn-outline-danger" 
-                                                data-toggle="modal" data-target="#deletedeleteModal" id="delete" 
-                                                data-trip_id="<?php echo $trip_id ;?>"></i>
+                                <!-- //                 <i class="far fa-trash-alt  editmode btn-outline-danger" 
+                                //                 data-toggle="modal" data-target="#deletedeleteModal" id="delete" 
+                                //                 data-trip_id="<?php //echo $trip_id ;?>"></i>
                                                 
-                                                <i class="fas fa-info-circle  editmode btn-outline-warning "  
-                                                data-toggle="modal" data-target="#infouser" id="moreinfo" 
-                                                data-trip_id="<?php echo $trip_id ;?>"> 
-                                        </tr>
+                                //                 <i class="fas fa-info-circle  editmode btn-outline-warning "  
+                                //                 data-toggle="modal" data-target="#infouser" id="moreinfo" 
+                                //                 data-trip_id="<?php //echo $trip_id ;?>">  -->
+                                <!-- //         </tr> -->
                                         <?
-                                        }
-                                    }else{
-                                    }
+                                //         }
+                                //     }else{
+                                //     }
                                     
-                                }else{  
+                                // }else{  
                                 
-                                    echo '<div class="alert alert-warning">An error occured!</div>'; exit;
+                                //     echo '<div class="alert alert-warning">An error occured!</div>'; exit;
                                 
-                                }
+                                // }
                                     ?>                                                
                                         
-                        </tbody>
+                        <!-- </tbody>
                     </table>
                 </div>
             </div>
         </div>
-    </div>
+    </div> 
 
-</div>
+</div>  -->

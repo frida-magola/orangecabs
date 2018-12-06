@@ -101,11 +101,11 @@
                                 <?php 
                                 if($verify == "0") {
                                     echo "
-                                         <a class=\"waves-effect red btn-small\">Pending</a>
+                                         <a class=\"badge badge-warning btn-small\">Pending</a>
                                     ";
                                 }
                                 else {
-                                    echo "<a class=\"waves-effect #66bb6a green lighten-1 btn-small\">active</a>";
+                                    echo "<a class=\"badge badge-success btn-small\">active</a>";
                                 }
                                 
                             ?>

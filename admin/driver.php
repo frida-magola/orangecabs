@@ -1,6 +1,6 @@
 <?php
 session_start();
-require '../vendor/autoload.php';
+// require '../vendor/autoload.php';
 
 
 include('../func/connection.php');
@@ -42,7 +42,7 @@ $p='driver';
                 <h5 class="h4">Displaying all Activity rides</h5>
     </div>
     <div class="table-responsive">  
-        <table class="table-striped" id="datatable">
+        <table class="table table-striped" id="datatable">
                     <thead>
                             <tr>
                             <th>Pick up point</th>
