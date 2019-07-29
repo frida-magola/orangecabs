@@ -1,6 +1,8 @@
 <?php
 session_start();
 include('connection.php');
+require('NotifyAdmin.php');
+
 
 //<!--    define error messages-->
 $missingPickuppoint= '<p><strong>Please enter your pick up point!</strong></p>';
@@ -166,6 +168,25 @@ if($errors){
 
         }else{
             echo "<div class='alert alert-success'>Your trip is successful created! </div>";
+
+            //send the trip notification with php mailersss by Email
+            /**
+             * GET USER DETAILS
+             */
+            
+            $tripDetails = array(
+                'userId'=>$user_id,
+                'departure'=>$pickuppoint,
+                'destination'=>$dropofpoint,
+                'distance'=>$distance,
+                'amountofriders'=>$amountofriders,
+                'nameofonerider'=>$nameofonerider,
+                'price'=>$_POST['price'],
+                'date'=>$mydate,
+            );
+            $notify = new NotifyAdmin($user_id, 'Added trip', $tripDetails);
+
+            //send notification to the Admin Dashboard using Ajax
         }
 
 

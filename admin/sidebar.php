@@ -4,8 +4,12 @@
     <div class="sidebar-sticky">
           <ul class="nav flex-column">
             
-            <li class="nav-item <?php if($p == 'madmin'){echo 'active';}?>">
+            <!-- <li class="nav-item <?php //if($p == 'madmin'){echo 'active';}?>">
               <a class="nav-link " href="?p=madmin"><i class="fas fa-map-marker-alt sidebaricon"></i>Maps</a>
+            </li> -->
+
+            <li class="nav-item <?php if($p == 'filemanager'){echo 'active';}?>">
+              <a class="nav-link" href="?p=filemanager"><i class="far fa-folder-open"></i>File Manager</a> 
             </li>
 
             <li class="nav-item <?php if($p == 'users'){echo 'active';}?>">
@@ -28,12 +32,6 @@
               <a class="nav-link " href="?p=driver"><i class="fas fa-plane-arrival"></i>Riders Bookings</a>
             </li>
 
-             <li class="nav-item <?php if($p == 'filemanager'){echo 'active';}?>">
-              <a class="nav-link" href="?p=filemanager">
-              <i class="far fa-folder-open"></i>File Manager
-              </a> 
-            </li>
-
             <li class="nav-item <?php if($p == 'history'){echo 'active';}?>">
               <a class="nav-link " href="?p=history"><i class="fas fa-history"></i>History</a>
             </li>
@@ -42,9 +40,9 @@
               <a class="nav-link " href="?p=payment"><i class="fas fa-credit-card"></i>Payments</a>
             </li>
 
-            <!-- <li class="nav-item <?php //if($p == 'chat'){echo 'active';}?>">
-              <a class="nav-link " href="?p=chat"><i class="far fa-comment-alt"></i>Chats</a>
-            </li> -->
+            <li class="nav-item <?php if($p == 'chat'){echo 'active';}?>">
+              <a class="nav-link " href="?p=chat"><i class="far fa-comment-alt"></i>Message / Chat</a>
+            </li>
 
             <li class="nav-item <?php if($p == 'profile'){echo 'active';}?>">
               <a class="nav-link " href="?p=profile"><i class="fas fa-user-circle"></i>Profile</a>

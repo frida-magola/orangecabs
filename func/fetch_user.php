@@ -14,14 +14,14 @@ $statement = $link->prepare($query);
 $statement->execute();
 $result = $statement->fetchAll();
 
-// $output = '
-//     <table class="table table-bordered table-striped" style="">
-//         <tr>
-//             <td>Username</td>
-//             <td>Status</td>
-//             <td>Action</td>
-//         </tr>
-// ';
+$output = '
+    <table class="table table-bordered table-striped" style="">
+        <tr>
+            <td>Orangecabs support</td>
+            <td>Status</td>
+            <td>Action</td>
+        </tr>
+';
 
 
 
@@ -48,17 +48,14 @@ foreach($result as $row){
         
     }
     $output .= '
-        <div class="card-header">
-            <p> Online Support Orange cabs '.count_unseen_message($row['user_id'],$_SESSION['user_id'],$link).' '.fetch_is_type_status($row['user_id'],$link).' <span>'.$status.'&nbsp;&nbsp;</span><i class="fas fa-times" id="close-chat"></i></p>
-    
-        </div>
-            <div class="card-body text-center">
-                <p>
-                <a type="button" class="btn btn-info btn-lg start-chat"
-                data-touserid="'.$row['user_id'].'" data-tousername="'.$row['username'].'">Start chat</a>
-                </p>
-            </div>
-
+        <tr>
+            <td>Online Support Orange cabs '.count_unseen_message($row['user_id'],$_SESSION['user_id'],$link).' '.fetch_is_type_status($row['user_id'],$link).'</td>
+            <td>'.$status.'</td>
+            <td>
+            <a type="button" class="btn btn-info btn-xs start-chat"
+            data-touserid="'.$row['user_id'].'" data-tousername="'.$row['username'].'">Start chat</a>
+            </td>
+        </tr>
     ';
 
 }
@@ -67,3 +64,14 @@ $output .='</table>';
 echo $output;
 
 ?>
+
+<!-- // <div class="card-header">
+        //     <p> Online Support Orange cabs '.count_unseen_message($row['user_id'],$_SESSION['user_id'],$link).' '.fetch_is_type_status($row['user_id'],$link).' <span>'.$status.'&nbsp;&nbsp;</span><i class="fas fa-times" id="close-chat"></i></p>
+    
+        // </div>
+        //     <div class="card-body text-center">
+        //         <p>
+        //         <a type="button" class="btn btn-info btn-lg start-chat"
+        //         data-touserid="'.$row['user_id'].'" data-tousername="'.$row['username'].'">Start chat</a>
+        //         </p>
+        //     </div> -->

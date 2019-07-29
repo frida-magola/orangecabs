@@ -13,7 +13,6 @@ body{
 }
 #map,#map2{height: 60vh; width: 100%; margin-bottom: 2rem;}
 
-
 .bg-dark {
     background-color:#11A0DC !important;
         color: #fff;
@@ -506,7 +505,8 @@ element.style {
   }
 
   .adminchatbox{
-    top: 5.5rem !important;
+    top: 1rem !important;
+    /* margin-bottom: 5rem; */
   }
   .popup-driver {
     width: 7rem !important;

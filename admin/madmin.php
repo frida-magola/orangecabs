@@ -70,6 +70,7 @@ WHERE cars.status_car='A'";
     <link href="../src/css/dashboard.css" rel="stylesheet">
     <link href="../src/css/trip.css" rel="stylesheet">
     <link href="../src/DataTablesBootstrap/datatables.css" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdn.datatables.net/scroller/2.0.0/css/scroller.dataTables.min.css"> 
     <!-- datepicker bootstrap -->
     <link href="../src/css/datetimepicker.css" rel="stylesheet" type="text/css"/>
 
@@ -94,7 +95,7 @@ WHERE cars.status_car='A'";
                             <?= $content; ?>
 
                             <!-- Open message box -->
-                            <i class="fa fa-comments buttonOpenChatApp"></i>
+                            <!-- <a href="chat.php"><i class="fa fa-comments buttonOpenChatAppadmin"></i></a> -->
                         </main>
                     </div>
                 </div>
@@ -1331,15 +1332,7 @@ WHERE cars.status_car='A'";
                 <?php include('../inc/footer.php');?>
 
                 <!-- start chat -->
-                <div class="card adminchatbox" id="chatApp">
-                    <div class="card-header">
-                        <p>Chat With <i class="fas fa-times" id="close-chat"></i></p>
-                    </div>
-                    <div class="card-body">
-                        <h5 id="user_details" class="list-group-item list-group-item-action" style="font-size:.9rem;"></h5>
-                    </div>  
-                </div>
-                <div id="user_modal_details"></div>
+                
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -1360,6 +1353,9 @@ WHERE cars.status_car='A'";
     </script>
     
     <script src="../src/DataTablesBootstrap/datatables.min.js"></script>
+    <script src="https://cdn.datatables.net/scroller/2.0.0/js/dataTables.scroller.min.js"></script>
+    <!-- https://code.jquery.com/jquery-3.3.1.js -->
+
     <script src="../func/maps.js"></script>
     <script src="../func/javascript.js"></script>
     <script src="../func/mytrip.js"></script>

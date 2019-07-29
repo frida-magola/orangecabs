@@ -2,11 +2,15 @@
 
 include('connect.php');
 
-$query = $link->prepare("SELECT * FROM users WHERE mobile=:mobile");
-$query->bindParam(':mobile',$mobile);
-$mobile=$_GET['mobile'];
-$query->execute();
-$user= $query->fetchAll();
-echo json_encode($user);
+if ($_GET['mobile'] !=="" && $_GET['token'] !=="") {
+
+    $sql = $link->prepare("SELECT * FROM users WHERE mobile=:mobile AND access_token=:token");
+    $sql->bindParam(':mobile', $_GET['mobile']);
+    $sql->bindParam(':token', $_GET['token']);
+    $sql->execute();
+    $results = $sql->fetchAll();
+
+    echo json_encode($results);
+}
 
 ?>

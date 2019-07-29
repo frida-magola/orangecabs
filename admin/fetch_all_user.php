@@ -8,7 +8,7 @@ include("../func/functions.php");
 $output = '';
 
 $query = "SELECT * FROM users
-WHERE user_id != '".$_SESSION['user_id']."'";
+WHERE user_id != '".$_SESSION['user_id']."' ORDER BY role DESC";
 
 
 
@@ -21,6 +21,7 @@ $output = '
     <table class="table table-bordered table-striped">
         <tr>
             <td>Username</td>
+            <td>Role</td>
             <td>Status</td>
             <td>Action</td>
         </tr>
@@ -53,6 +54,7 @@ foreach($result as $row){
         <tr>
             <td>'.$row['username'].' '.count_unseen_message($row['user_id'],$_SESSION['user_id'],$link).' '.fetch_is_type_status($row['user_id'],$link).'</td>
             <td>'.$status.'</td>
+            <td>'.$row['role'].'</td>
             <td>
                <a type="button" class="btn btn-info btn-xs start-chat"
                data-touserid="'.$row['user_id'].'" data-tousername="'.$row['username'].'">Start chat</a>

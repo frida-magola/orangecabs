@@ -12,29 +12,23 @@ if(!empty($_GET['mobile'] && !empty($_GET['token']))){
     if(mysqli_num_rows($resultsUser)>0){
         while($row = mysqli_fetch_array($resultsUser, MYSQLI_ASSOC)){
         $user_id = $row['user_id'];
-        }     
+        }
+         
     }
 //    echo $user_id;
-    $sql ="SELECT * FROM trips WHERE user_id ='$user_id' AND trips.date >= DATE(NOW()) AND is_delete='0' AND status_pay='unpaid' ORDER BY trip_id DESC";
+    $arr = array();
+    $sql ="SELECT * FROM trips WHERE user_id ='$user_id' AND is_delete='0' AND status_pay='paid' ORDER BY trip_id DESC";
     //shows trips or alert message
     $result = mysqli_query($link, $sql);
-    
     if(mysqli_num_rows($result) > 0){
         while ($row[] = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
            $item = $row;
            $json = json_encode($item);
         }
-        
     }else{
-         echo json_encode('You have not taken a trip yet.');
+         echo json_encode('You have not any histrory trip yet.!');
     }
      echo $json;
-     
      $link->close();
+
 }
-
-
-
-
-
-
