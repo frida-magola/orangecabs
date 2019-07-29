@@ -28,10 +28,10 @@
             </div>
 
         </div>
-        <i class="fas fa-bars" id="menus-toggle"></i>
+        <!-- <i class="fas fa-bars" id="menus-toggle"></i>
         <div class="btn-group px-3 dropleft notifydesktop">
 
-             <div class="btn-group">
+          <div class="btn-group">
             <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
             >
             <span><i class="fa fa-bell notificationicon" data-toggle="tooltip" data-placement="left" title="Enable Notification"></i></span>
@@ -42,7 +42,20 @@
                 <div class="dropdown-divider"></div>
             </div>
 
-        </div>
+          </div>
+
+        </div> -->
+
+        <i class="fas fa-bars" id="menus-toggle"></i>
+        <div class="btn-group px-3 dropleft notifydesktop">
+
+             <div class="btn-group">
+                <!-- <button type="button" class="btn btn-warning dropdown-toggle">
+                    
+                </button> -->
+                <span class="badge badge-danger count" style="border-radius:10px"></span>
+                <span><i class="fa fa-bell notificationicon" data-toggle="tooltip" data-placement="left" title="Enable Notification"></i></span>
+                <ul class="dropdown-menu" id="notificationicon-list"></ul>
 
         </div>
     </nav>

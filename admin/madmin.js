@@ -18,6 +18,20 @@ var img4= document.createElement("img");
 var userbody;
 var img5= document.createElement("img");
 
+//DataTable Jquery
+$("#datatable").dataTable({});
+
+//chat button
+$(".buttonOpenChatApp").on('click', function(){ 
+    $(this).hide();
+  });
+  
+  $("#close-chat").on('click', function(){
+    $("#chatApp").hide('fadeIn');
+    $(".buttonOpenChatApp").show('fadeOut');
+    
+  });
+
 // add model car type
 $("#addmodelcarform").submit(function(event){ 
     //prevent default php processing
@@ -401,10 +415,6 @@ $("#profilepictureform").submit(function(){
     });
 });
 
-  //dataTable
-  $("#datatable").dataTable({});
-
-
     function formatModal(){
 
         $("#pickuppoint2").val(trip['departure']);
@@ -666,7 +676,7 @@ $("#profilepictureform").submit(function(){
 
     // Cars more info request bookings information
     function formatrequestbookingsInfo(){
-                                        // $date = date('D d M, Y h:i', strtotime($row['date']));
+            // $date = date('D d M, Y h:i', strtotime($row['date']));
         
             $("#requestbookingsinfo table .pickuppoint").append(car['departure']);
             $("#requestbookingsinfo table .dropofpoint").append(car['destination']);
@@ -727,33 +737,6 @@ $("#profilepictureform").submit(function(){
     $('#inforequestbookings').on('hidden.bs.modal', function () {
         location.reload();
     });
-
-    //get all request riders
-    function allrequestBookings() {
-        //send  AJAX call to gettrips.php
-        $.ajax({
-            url: "alltriprequest.php",
-            success: function (returnedData) {
-                // console.log(returnedData);
-                if (returnedData) {
-
-                    $("#allrequestbookings").html(returnedData);
-
-                } else {
-
-                    $("#allrequestbookings").html("<div class='alert alert-info'>Not request bookings available yet!.</div>");
-                }
-
-            },
-            error: function () {
-
-                $("#allrequestbookings").html("<div class='alert alert-danger'>There was an error with the Ajax Call. Please try again later.</div>");
-
-            }
-        });
-
-
-    }
 
     //Edit or update driver form modal
     function formateditdriverModal(){
@@ -1376,8 +1359,6 @@ $("#profilepictureform").submit(function(){
 
     });
 
-
-
     // //update checkbox cars checked
     $("#checkcarsavalaibleModal").on('show.bs.modal',function(event){
         $("#checkavalaiblecarmessage").empty();
@@ -1424,27 +1405,72 @@ $("#profilepictureform").submit(function(){
 
     });
 
+    //get all request riders
+    function tripRiderRequest(){
+        $.ajax({
+            url: "tripRiderRequest.php",
+            type:"POST",
+            success: function(responseData){
+                $("#response").html(responseData);
+            }
+
+        });
+    }
+    tripRiderRequest();
+    
+    setInterval(function(){
+        tripRiderRequest();
+    },1000);
+
+    function allrequestBookings() {
+        //send  AJAX call to gettrips.php
+        $.ajax({
+            url: "alltriprequest.php",
+            success: function (returnedData) {
+                // console.log(returnedData);
+                if (returnedData) {
+
+                    $("#allrequestbookings").html(returnedData);
+
+                } else {
+
+                    $("#allrequestbookings").html("<div class='alert alert-info'>Not request bookings available yet!.</div>");
+                }
+
+            },
+            error: function () {
+
+                $("#allrequestbookings").html("<div class='alert alert-danger'>There was an error with the Ajax Call. Please try again later.</div>");
+
+            }
+        });
+
+
+    }
+
+    allrequestBookings(); 
+
     //fetch users detail login
-function fetch_user(){
+    function fetch_user(){
 
-    $.ajax({
-      url: "fetch_all_user.php",
-      type: "POST",
-      success: function(data){
-          $("#user_details").html(data);
-      },
-      error: function(){
+        $.ajax({
+        url: "fetch_all_user.php",
+        type: "POST",
+        success: function(data){
+            $("#user_details").html(data);
+        },
+        error: function(){
 
-      }
-    });
-}
-fetch_user();
-
-setInterval(function(){
-    update_last_activity();
+        }
+        });
+    }
     fetch_user();
-    update_chat_history_data();
-  },5000);
+
+    setInterval(function(){
+        update_last_activity();
+        fetch_user();
+        update_chat_history_data();
+    },5000);
   
   //last activity of the user
   function update_last_activity(){
@@ -1470,11 +1496,10 @@ setInterval(function(){
     modal_content += '<div class="form-group">';
     modal_content += '<textarea name="chat_message_'+to_user_id+'" id="chat_message_'+to_user_id+'" class="form-control chat_message"></textarea>';
     modal_content += '</div><div class="form-group" align="right">';
-    modal_content += '<button type="button" name="send_chat" id="'+to_user_id+'" class="btn btn-info send_chat">Send</button></div></div>';
+    modal_content += '<button style="margin-bottom:50px" type="button" name="send_chat" id="'+to_user_id+'" class="btn btn-info send_chat">Send</button></div></div>';
     $('#user_modal_details').html(modal_content);
   }
-  
-  
+   
   $(document).on('click','.start-chat',function(){
   
     var to_user_id = $(this).data('touserid');

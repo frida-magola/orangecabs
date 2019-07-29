@@ -13,7 +13,7 @@ ob_start();
 
 if($p === 'madmin'){
 
-    require 'maps.php';
+    require 'filemanager.php';
 }
 
 elseif($p === 'users'){

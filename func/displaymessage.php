@@ -38,30 +38,30 @@ echo "There was an error retrieving the username and email from the database!";
 }
 $p='message';
 ?>
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h5 class="h4">Online Bookings / Leave a Message</h5>
-                </div>
+	<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+		<h5 class="h4">Online Bookings Support / Chat / Leave a Message </h5>
+	</div>
 
-										<div class="row">
-											<div class="col-md-4">
-												<form  id="formnotify">
-													<div id="notificationMessage"></div>
-													
-													<div class="form-group">
-														<label for="description">Message</label>
-														<textarea class="form-control" id="description" rows="3" name="description" placeholder="Leave a message for complaints or compliments"></textarea>
-													</div>
+	<!-- <div class="row"> -->
+		<div class="col-md-12" style="margin-bottom:.2rem;">
+			<!-- <h5 class="h5">Message Posted</h5>
+			<div id="load-allmessage-stuff"></div> -->
+			<!-- start chat -->
+			<div id="user_details" class="" style="font-size:.9rem;"></div>
+			<div id="user_modal_details" style="z-index:99999"></div>
+		</div>
 
-													<div class="form-group">
-														<input type="submit" id="submit"  class="btn btn-warning" value="SUBMIT">
-													</div>
-									  		 	</form> 
-											</div>
+		<div class="col-md-12">
+			<form  id="formnotify">
+				<div id="notificationMessage"></div>
+				<div class="form-group">
+					<textarea class="form-control" id="description" rows="3" name="description" placeholder="Leave a message for complaints or compliments....."></textarea>
+				</div>
 
-											<div class="col-md-8" style="margin-bottom:4rem;">
-												<h5 class="h5">Message Posted</h5>
-												<div id="load-allmessage-stuff"></div>
+				<div class="form-group">
+					<input type="submit" id="submit"  class="btn btn-warning" value="SUBMIT">
+				</div>
+			</form> 
+		</div>
 
-											</div>
-
-										</div>
+	<!-- </div> -->

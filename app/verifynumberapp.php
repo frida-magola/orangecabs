@@ -1,29 +1,26 @@
 <?php
-include('connect.php');
+    include('connect.php');
+ 
+    $json = file_get_contents('php://input'); 	
+    $obj = json_decode($json,true);
 
-        $errors = '';
-        $missingmobile = 'Please enter your mobile number!';
+    $mobile = $obj['mobile'];
 
         //get username
-        if(empty($_GET['mobile'])){
-           $errors .= $missingmobile; 
-        }
-        else {
-           $mobile = filter_var($_GET["mobile"], FILTER_SANITIZE_STRING) ;
+        if($obj['mobile']!=""){
+           $mobile = filter_var($obj["mobile"], FILTER_SANITIZE_STRING); 
+                   //check if mobile number  exist
+            $is_mobile_exist = $link->prepare("SELECT * FROM users WHERE mobile=:mobile");
+            $is_mobile_exist->bindParam(':mobile', $mobile);
+            $is_mobile_exist->execute();
+            if($is_mobile_exist->rowCount() > 0){
+                echo json_encode("ok");
+            }
+            else {
+               echo json_encode("This number does not exist!");
+            }
         }
 
-        //check if mobile number  exist
-        $is_mobile_exist = $link->prepare("SELECT * FROM users WHERE mobile=:mobile");
-        $is_mobile_exist->bindParam(':mobile', $mobile);
-        $is_mobile_exist->execute();
-//        var_dump($is_opt_exist);
-    //    $result_user = $is_username_exist->fetchAll();
-        if($is_mobile_exist->rowCount() > 0){
-            echo '1';
-        }
-        else {
-            echo '0';
-        }
 ?>
 
 

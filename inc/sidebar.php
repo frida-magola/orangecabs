@@ -26,7 +26,7 @@
                 </li>
 
                 <li class="nav-item  <?php if($p == 'message'){echo 'active';}?>">
-                  <a class="nav-link" href="?p=message"><i class="far fa-comment-alt"></i> Message</a>
+                  <a class="nav-link" href="?p=message"><i class="far fa-comment-alt"></i> Message / Chat</a>
                 </li>
 
                 <li class="nav-item <?php if($p == 'profile'){echo 'active';}?>">

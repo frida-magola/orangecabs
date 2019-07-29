@@ -137,16 +137,16 @@ function calculateRoute() {
 
                 var distance = result.routes[0].legs[0].distance.text;
                 distance = distance.replace(',', '');
-                distance = distance.replace('km', '');
-                distance = parseInt(distance);
+                distance = distance.replace(' km', '');
+                distance = parseFloat(distance);
                 
                 //dist = parseInt(distance.substring(0, distance.lastIndexOf(' ')))
 
                 //distance = distance.substring(0, distance.lastIndexOf(' '));
                 // console.log(distance);
 
-                //calculate price per kilometer R8.80/kilometer
-                var price = distance * 8.50;
+                //calculate price per kilometer R8.50/kilometer
+                var price = 50 + (distance - 3) * 8.50;
                 price = price.toFixed(2);
 
                 $("#price").val(price);

@@ -111,5 +111,5 @@ for (i = 0; i < close.length; i++) {
 }
 
 $("#loginButton").click(function(){
-    $("#cancellogin").css({"top":"54rem"})
+    $("#cancellogin").css({"top":"50rem"})
 })

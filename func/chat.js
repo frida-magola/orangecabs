@@ -14,7 +14,6 @@ $("#close-chat").on('click', function(){
   
 });
 
-
 //fetch users detail login
 function fetch_user(){
 

@@ -1,23 +1,34 @@
 <?php
 
 include('connect.php');
-    $logout = $link->prepare("SELECT * FROM users WHERE mobile=:mobile");
+
+    $json = file_get_contents('php://input'); 	
+    $obj = json_decode($json,true);
+
+    $mobile = $obj['mobile'];
+    // $username = $obj['username'];
+    $token = $obj['token'];
     
-    $logout->bindParam(':mobile', $mobile);
-    $mobile=$_GET['mobile'];
-    $logout->execute();
-    
-    if($logout->rowCount() > 0)
-    {
+    if($obj['mobile']!="" && $obj['token']!=""){
+        $logout = $link->prepare("SELECT * FROM users WHERE mobile=:mobile AND access_token=:token");    
+        $logout->bindParam(':mobile', $mobile);
+        $logout->bindParam(':token', $token);
+        $logout->execute();
         
-        $is_logout = $link->prepare("UPDATE users SET `is_connect`=0 WHERE mobile=:mobile"); 
-        $is_logout->bindParam(':mobile', $mobile);
-        $mobile=$_GET['mobile'];
-        $is_logout->execute();
+        if($logout->rowCount() > 0){
         
-        echo '1';
+            $is_logout = $link->prepare("UPDATE users SET `is_connect`=0,`access_token`=:tokenVide WHERE mobile=:mobile AND access_token=:token"); 
+            $is_logout->bindParam(':mobile', $mobile);
+            $is_logout->bindParam(':token', $token);
+            $is_logout->bindParam(':tokenVide', $tokenVide);
+            $tokenVide="NULL";
+            $is_logout->execute();
+
+            echo json_encode('ok');
         
+         }
     }
+
 ?>
 
 

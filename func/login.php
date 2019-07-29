@@ -61,22 +61,24 @@ if($errors){
         exit;
     }
     
-    //if email and password don't match print error
+    //if mobile and password don't match print error
     $count = mysqli_num_rows($result);
     
     if(!$count == 1){
         
         echo '<div class="alert danger paragraph">Wrong mobile phone or Password!</div>';
+//        exit;
         
     }else{
-        
-       $rows = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        $rows = mysqli_fetch_array($result, MYSQLI_ASSOC);
         
         $_SESSION['user_id'] = $rows['user_id'];
         
-       $_SESSION['username'] = $rows['username'];
+        $_SESSION['username'] = $rows['username'];
         
         $_SESSION['mobile'] = $rows['mobile'];
+        
+        $_SESSION['role'] = $rows['role'];
 
         //sent data in login_details table
         $sub_query = "INSERT INTO login_details(`user_id`,`status`) VALUES('".$rows['user_id']."','1')";
@@ -90,19 +92,54 @@ if($errors){
 
         $sub_is_connect = "UPDATE users SET `is_connect`='1' WHERE user_id='".$rows['user_id']."'";
         $result_sub_is_connect = $link->prepare($sub_is_connect); 
-        $result_sub_is_connect->execute(); 
-        //redirect user to the specific pages
-        if($mobile === '0638206725'){
-
+        $result_sub_is_connect->execute();
+        
+        if($rows['role'] === 'admin'){
+            
             echo 'admin';
-
-        }else{
-
+        }
+        else{
             echo 'users';
         }
-        
-        
     }
+//    //Run quey: chech combination or email and password exists
+//    $sqlrole = "SELECT * FROM users WHERE mobile='$mobile' AND password='$password' AND verify='1' AND role='admin'";
+//    $resultrole = mysqli_query($link,$sqlrole);
+//    $countrole = mysqli_num_rows($resultrole);
+    
+//    if($countrole == 1){
+//        
+//        $rows = mysqli_fetch_array($resultrole, MYSQLI_ASSOC);
+//        
+//        $_SESSION['user_id'] = $rows['user_id'];
+//        
+//        $_SESSION['username'] = $rows['username'];
+//        
+//        $_SESSION['mobile'] = $rows['mobile'];
+//
+//        //sent data in login_details table
+//        $sub_query = "INSERT INTO login_details(`user_id`,`status`) VALUES('".$rows['user_id']."','1')";
+//    
+//        $statement = $link->prepare($sub_query);
+//        $statement->execute();
+//
+//        //create session for login_details_id
+//        // $_SESSION['login_details_id'] = $link->lastInsertId();
+//        $_SESSION['login_details_id'] = mysqli_insert_id($link);
+//
+//        $sub_is_connect = "UPDATE users SET `is_connect`='1' WHERE user_id='".$rows['user_id']."'";
+//        $result_sub_is_connect = $link->prepare($sub_is_connect); 
+//        $result_sub_is_connect->execute();
+//        
+//        echo 'admin';
+//        
+//    }else{
+//
+//        
+//      echo 'users';
+//        
+//        
+//    }
 
 }
 

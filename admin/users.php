@@ -57,7 +57,7 @@ echo "There was an error retrieving the username and email from the database!";
                     <tbody>
                         <?php
                         
-                        $sql = "SELECT * FROM `users` WHERE role='' ORDER BY user_id DESC";
+                        $sql = "SELECT * FROM `users` WHERE role='rider' ORDER BY user_id DESC";
 
                         if($result = mysqli_query($link, $sql)){
 

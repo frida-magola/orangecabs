@@ -64,7 +64,7 @@
                 
                  <!-- Open message box -->
                 <!-- <div > data-touserid="<?//echo $user_id;?>" data-tousername="<?//echo $username;?>" -->
-                    <i class="fa fa-comments buttonOpenChatApp"></i>
+                    <!-- <i class="fa fa-comments buttonOpenChatApp"></i> -->
                     
                     <!-- </div> -->
                 
@@ -309,15 +309,6 @@
                         </div>
                     </div>
                 </form>
-
-                <!-- start chat -->
-                <div class="card" id="chatApp">
-                    <div id="user_details" class="" style="font-size:.9rem;"></div>
-                    
-                </div>
-                <div id="user_modal_details"></div>
-
-                
 
    
     <!-- Bootstrap core JavaScript
