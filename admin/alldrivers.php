@@ -63,7 +63,9 @@
                         <th>Name</th>
                         <th>Mobile</th>
                         <th>Email</th>
+                        <th>Role</th>
                         <th>Status</th>
+                        <th>Connected</th>
                         <th>Action</th>
                         
                         </tr>
@@ -72,7 +74,7 @@
                     <tbody>
                         <?php
                         
-                        $sql = "SELECT * FROM users WHERE role='driver' OR role='2' ORDER BY user_id DESC";
+                        $sql = "SELECT * FROM users WHERE role='driver' OR role='admin' ORDER BY user_id DESC";
 
                         if($result = mysqli_query($link, $sql)){
 
@@ -86,6 +88,7 @@
                                     $role = $row['role'];
                                     $verify = $row['verify'];
                                     $profile = $row['profilepicture'];
+                                    $is_connect=$row['is_connect'];
                                     
                         ?>
                         <tr>
@@ -97,6 +100,7 @@
                             <td><?php echo $username ; ?></td>
                             <td><?php echo $mobile; ?></td>
                             <td><?php echo $email; ?></td>
+                            <td><?php echo $role; ?></td>
                             <td>
                                 <?php 
                                 if($verify == "0") {
@@ -110,6 +114,15 @@
                                 
                             ?>
                             </td>
+                            <td>
+                                    <?php if($is_connect == 1){
+                                        echo  "<span class='badge badge-success'>online</span>";
+                                        }
+                                        else{
+                                            echo "<span class='badge badge-danger'>offline</span>";
+                                        }
+                                    ?>
+                                </td>
 
                             <td>
                                 <i class="fas fa-pencil-alt editmode btn-outline-success" 

@@ -1,4 +1,5 @@
-<?php  
+<?php
+
 include('../func/connection.php');
 require('NotifyAdmin.php');
 
@@ -100,17 +101,17 @@ if(empty($obj['price'])){
 }
 
 //check amount of riders even price
-if(empty($obj['amountofrider'])){
+if(empty($obj['numberofrider'])){
 
     $errors .= $amoutofriders;
 
-}elseif(preg_match('/\D/',$obj['amountofrider'])){
+}elseif(preg_match('/\D/',$obj['numberofrider'])){
 
     $errors .= $invalidAmountofriders;
 
 }else{
 
-    $amountofriders = filter_var($obj['amountofrider'], FILTER_SANITIZE_STRING);
+    $amountofriders = filter_var($obj['numberofrider'], FILTER_SANITIZE_STRING);
 
 }
 
@@ -123,13 +124,6 @@ if(empty($obj['nameofrider'])){
 
     $nameofonerider = filter_var($obj['nameofrider'], FILTER_SANITIZE_STRING);
 
-}
-
-//payment method choice
-if($obj['paymentmethod'] == 0){
-   $paymentOptions = 'credit card' ;
-} else {
-    $paymentOptions = 'cash' ;
 }
 
 //check if there are errors and print errors
@@ -148,29 +142,16 @@ if($errors){
     $tableName = 'trips';
 
     //retrieve user from the database
-    $token=$obj['token'];
-    $mobile=$obj['mobile']; 
+    $tripId=$obj['tripId'];
+    $userId=$obj['userId']; 
     $mydate = $obj['datePicker'];
-    $status = $obj['status'];
-//    $mydate = date('Y-m-d h:i', strtotime($mydate));
-    $user_id;
-    $query="SELECT * FROM users WHERE mobile='$mobile' AND access_token='$token'";
-    $resultsUser = mysqli_query($link, $query);
-   
-    if(mysqli_num_rows($resultsUser)>0){
-        while($row = mysqli_fetch_array($resultsUser, MYSQLI_ASSOC)){
-        $user_id = $row['user_id'];
-        }
-         
-    }
-//echo $user_id;
-     //query for a regional trip
-      $sql = "INSERT INTO $tableName (`user_id`,`departure`,`departureLatitude`,
-      `departureLongitude`,`destination`, `destinationLatitude`,`destinationLongitude`,`distance`,`duration`,
-       `amountofriders`,`nameofonerider`,`price`,`status_pay`,`payment`,`date`) 
-      VALUES ('$user_id','$pickuppoint','$pickupointLatitude','$pickuppointLongitude',
-      '$dropofpoint','$dropofpointLatitude','$dropofpointLongitude','{$obj['distance']}','{$obj['duration']}','$amountofriders',
-      '$nameofonerider','{$obj['price']}','{$obj['status']}','$paymentOptions','{$mydate}')";
+    $paymentOptions=$obj['paymentmethod'];
+
+    //query for update a trip
+      $sql = "UPDATE $tableName SET `departure`='$pickuppoint',`departureLatitude`='$pickupointLatitude',
+      `departureLongitude`='$pickuppointLongitude',`destination`='$dropofpoint',`destinationLatitude`='$dropofpointLatitude',
+      `destinationLongitude`='$dropofpointLongitude',`distance`='{$obj['distance']}',`duration`='{$obj['duration']}',
+      `amountofriders`='$amountofriders',`nameofonerider`='$nameofonerider',`price`='{$obj['price']}',`payment`='$paymentOptions',`date`='{$mydate}' WHERE `trip_id`='$tripId' AND user_id='$userId' LIMIT 1";
 
         //run the query and and store in $results
 
@@ -184,27 +165,8 @@ if($errors){
             tabase!");
 
         }else{
-            //send the trip notification with php mailersss by Email
-            /**
-             * GET USER DETAILS
-             */            
-            $tripDetails = array(
-                'userId'=>$user_id,
-                'departure'=>$pickuppoint,
-                'destination'=>$dropofpoint,
-                'distance'=>$distance,
-                'amountofriders'=>$amountofriders,
-                'nameofonerider'=>$nameofonerider,
-                'price'=>$obj['price'],
-                'date'=>$mydate,
-            );
-            $notify = new NotifyAdmin($user_id, 'Added trip', $tripDetails);
-            //send notification to the Admin Dashboard using Ajax
             echo json_encode('ok');
         }
 }
-
-?>
-
 
 

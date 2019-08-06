@@ -50,11 +50,18 @@ $rows = mysqli_fetch_row($result);
 $number_of_bookings = $rows[0];
 
 //count users connected
-$sqluserconnect = "SELECT COUNT(*) FROM users WHERE is_connect='1'";
+$sqluserconnect = "SELECT COUNT(*) FROM users WHERE is_connect='1' AND role='rider'";
 $result_userconnect = mysqli_query($link,$sqluserconnect);
 $rows_userconnect = mysqli_fetch_row($result_userconnect);
 // return $rows[0];
 $number_of_result_userconnect = $rows_userconnect[0];
+
+//count driver connected
+$sqldriverconnect = "SELECT COUNT(*) FROM users WHERE is_connect='1' AND role='driver' OR role='admin'";
+$result_driverconnect = mysqli_query($link,$sqldriverconnect);
+$rows_driverconnect = mysqli_fetch_row($result_driverconnect);
+// return $rows[0];
+$number_of_result_driverconnect = $rows_driverconnect[0];
 
 //count chat
 $sqlchat = "SELECT COUNT(*) FROM chat_message";
@@ -76,7 +83,7 @@ $number_of_history = $rows[0];
 
 </div>
             <div class="row adminbox">
-                    <div class="col-sm-3">
+                    <div class="col-sm-4">
                       <div class="card">
                         <div class="card-body ridersbook">
                         <i class="fas fa-users"></i>
@@ -85,7 +92,7 @@ $number_of_history = $rows[0];
                         </div>
                       </div>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-sm-4">
                       <div class="card">
                         <div class="card-body ridersbook">
                             <i class="fas fa-car"></i>
@@ -95,7 +102,7 @@ $number_of_history = $rows[0];
                       </div>
                     </div>
 
-                    <div class="col-sm-3">
+                    <div class="col-sm-4">
                       <div class="card">
                         <div class="card-body ridersbook">
                         <i class="fas fa-code-branch"></i>
@@ -104,12 +111,14 @@ $number_of_history = $rows[0];
                         </div>
                       </div>
                     </div> 
+            </div>
 
-                    <div class="col-sm-3">
+            <div class="row adminbox">
+                    <div class="col-sm-4">
                       <div class="card">
                         <div class="card-body ridersbook">
                           <i class="fas fa-user-edit"></i>
-                          <h6>Today's Bookings <span style="background-color: #FCB134;
+                          <h6>Request Bookings <span style="background-color: #FCB134;
                             border: 1px solid #ffffff;
                             border-radius: 50%;
                             width: 10rem; color:#ffffff;padding:.5rem"><?=$number_of_bookings;?></span></h6>
@@ -117,10 +126,18 @@ $number_of_history = $rows[0];
                         </div>
                       </div>
                     </div>
-            </div>
-
-            <div class="row adminbox">
-                    <div class="col-sm-3">
+                
+                <div class="col-sm-4">
+                      <div class="card">
+                        <div class="card-body ridersbook">
+                        <i class="fas fa-history"></i>
+                          <h6>History Bookings</h6>
+                          <a stype="submit" href="?p=history" class="btn btn-primary">View</a>
+                        </div>
+                      </div>
+                </div>
+                
+                 <div class="col-sm-4">
                       <div class="card">
                         <div class="card-body chat">
                           <i class="far fa-grin"></i>
@@ -132,9 +149,26 @@ $number_of_history = $rows[0];
                           <a href="?p=users" class="btn btn-primary">View</a>
                         </div>
                       </div>
+                </div>
+            </div>
+
+
+            <div class="row adminbox">
+                    <div class="col-sm-4">
+                      <div class="card">
+                        <div class="card-body chat">
+                          <i class="far fa-grin"></i>
+                          <h6>Driver Connected <span style="background-color: #FCB134;
+                            border: 1px solid #ffffff;
+                            border-radius: 50%;
+                            width: 10rem; color:#ffffff;padding:.5rem">
+                            <?=$number_of_result_driverconnect;?></span></h6>
+                          <a href="?p=drivers" class="btn btn-primary">View</a>
+                        </div>
+                      </div>
                     </div>
 
-                    <div class="col-sm-3">
+                    <div class="col-sm-4">
                       <div class="card">
                         <div class="card-body ridersbook">
                           <!-- <i class="fas fa-users"></i> -->
@@ -148,7 +182,7 @@ $number_of_history = $rows[0];
                       </div>
                     </div>
 
-                    <div class="col-sm-3">
+                    <div class="col-sm-4">
                       <div class="card">
                         <div class="card-body chat">
                             <i class="far fa-comments"></i>
@@ -159,26 +193,7 @@ $number_of_history = $rows[0];
                             <a href="?p=chat" class="btn btn-primary">View</a>
                         </div>
                       </div>
-                    </div>
-
-                    <div class="col-sm-3">
-                      <div class="card">
-                        <div class="card-body ridersbook">
-                        <i class="fas fa-history"></i>
-                          <h6>History Bookings</h6>
-                          <a stype="submit" href="?p=history" class="btn btn-primary">View</a>
-                        </div>
-                      </div>
-                    </div> 
-                    <!-- <div class="col-sm-4">
-                      <div class="card">
-                        <div class="card-body ridersbook">
-                        <i class="fas fa-map-marked-alt"></i>
-                          <h6>Add Trip</h6>
-                          <a stype="submit" href="#addtripadminModal" data-toggle="modal" class="btn btn-primary btn-lg">Add trip</a>
-                        </div>
-                      </div>
-                    </div> -->    
+                    </div>   
             </div>
 
             
